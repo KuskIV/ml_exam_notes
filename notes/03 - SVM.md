@@ -1,15 +1,15 @@
 ---
 title: 03 - SVM
 created: '2022-06-02T07:47:01.507Z'
-modified: '2022-06-02T09:38:20.699Z'
+modified: '2022-06-02T12:20:11.614Z'
 ---
 
 # 03 - SVM
 
 ## Keywords
 
-__Hyperplane__: 
-__Support Vector__:
+__Hyperplane__: The dividing line in placed to seperate the data
+__Support Vector__: Sampels on the edge of the boundry and are the most difficult to calssify.
 
 ## Data Transformations
 
@@ -22,6 +22,8 @@ defines how some original data x is turned into a transformend data instance $\p
 ## Support Vector Machine (SVM)
 
 The objective of the SVM is to find a hyperplane in an N-dimensional space (N is the number of features) that distinctly classifies the datapoints.
+
+We want to find the widest road between different samples, and this is done by considering the dot products of suppot vectors and the samples.
 
 ![](@attachment/Clipboard_2022-02-14-10-34-57.png)
 
@@ -67,37 +69,73 @@ The cost is 0 if the predicted and actual value is the same. Else the cost will 
 
 When features are not linearly seperable, one way to solve this is by adding/removing dimensinos (usually adding), and mapping datapoints to this new space using a kernel fuction. This new high-dimensioal features space makes in possible to make it a linear classification problem again.
 
+## Lagrange Multipliers
 
+The SVM learning problem is solved using the method of Lagrange multipliers.
+
+The point of the Lagrange optimization process is to determine the support vector $x_i$, the $\lambda_i$ and the $b$. The only operations required on data itesm is to compute dot products $x_i * x_j$. For classification we only need to compute dot products $x_i*z$
+
+The method of Lagrange Multipliers is a simple and elegang method for finding the local minima or local maxima of a function subject to equality of inequality constraints.
+
+The method of Lagrange multipliers first constructs a function called the Lagrange function as given by the following expression:
+
+$$L(x,\lambda)=f(x)+\lambda_1 * g_1(x)+ \dots \lambda_n*g_n(x)$$
+
+Here $\lambda$ represents a vector of Langrange multipliers, e.i.
+
+$$\lambda = [\lambda_1, \lambda_2, \dots, \lambda_n]^T$$
+
+To find the points of local minimum of $f(x)$ subject to the equality constraints, we find the stationary points of the Langrange function $L(x,\lambda)$, e.i. we solve the following equations:
+
+$$\bigtriangledown xL=0$$
+$$\delta L/\delta \lambda_i = 0 (for: i = 1,\dots, n)$$
+
+Hence, we get a total of $m+n$ equations to solve, where:
+
+- $m$: Number of variables in domain of f
+- $n$: Number of equality constraints
+
+In short, the points of local minimum would be solution of the following equations:
+
+$$\delta L / \delta x_j = 0 (for: i = 1, \dots,m)$$
+$$g_i(x) = 0 (for: i = 1, \dots,n)$$
 
 
 ### Mercers Theorem
+
+Mercers Theorem determines which functions can be used as a kernel function. 
+
+The Mercers Theorem stats that if a kernel function $K$ is symmetric, continuous and leads to a positive semi-definite matrix $P$ then there exists a function $\phi$ that maps $x_i$ and $x_j$ into another space (possible with higher deimensions) such that
+
+$$K(x_i, x_j)=\phi(x_i)^T\phi(x_j)$$
+
+So you can use $K$ as a kernel since you know $\phi$ exists, even if you do not know what $\phi$ is.
 
 A kernel function $k(x,y)$ is an inner product between the samles where $k(x,y)=\left \langle \phi(x),\phi(y)  \right \rangle$. Valid kernel functions must satisfy the Mercers condition, namely $k(x,y)$ must equal $k(y,x)$.
 
 ### Matric Version of Mercers Theorem
 
+A symmetric function $K(x,z)$ is on the form
+
+$$K(x,z)=\phi(x)\cdot \phi(z)$$
+
+For some feature mapping $\phi$, if and only if for all finite sets of points $x_1, \dots, x_n$ the kernel matrix is positive semi-definite.
+
 ### Kernels
+
+Is a function which allows us to create a non-linear hyperplance. A kernel cannot be a kernel unless it satisfies Mercers theorem, whichh emans thath the kernel should be a symmetric continuous function.
 
 Basic kernels include:
 - Polynomial Kernel: $(x*z+1)^p$
 - Gaussian Kernel: $e^{-\left \| x - z \right \| / 2\sigma^2}$
 - Hyperboloc Tangent: $tanh(k*x*z-\delta)$
 
-Kernel building rules
 
 ## Kernels for Non Standard Data
 
 ### Term Frequency Vector
 
-### Cosine SImilarity
-
-## Kernel
-
-The SVM kernel is a function that takes a low dimensional input space and transforms it into a higher order dimensional space. This means it converts not seperable problems into seperable problems.
-
-## Information Retrieval
-
-## Dynamic Programming Approach
+A term frequency vectore, is a vector where each index represents how many times the index occurs. This could be based on a text, where the vector will be words, and each index will be how many times a given word occurs in a text.
 
 ## Summary
 
