@@ -1,10 +1,12 @@
 ---
 title: 03 - SVM
 created: '2022-06-02T07:47:01.507Z'
-modified: '2022-06-02T12:20:11.614Z'
+modified: '2022-06-03T11:11:31.728Z'
 ---
 
 # 03 - SVM
+
+This lecture continued and finished the topic of support vector machines. The main issue was to consider how non-linear data transformation can be used to make data that is not linear separable to begin with, linealy seperable in a suitable feature space. The main tool for this are kenrel functions, and this lecture specifically looked at how kernel function can be used to transform classification problems for structed data like string and grapoh into standard linear classification problems. 
 
 ## Keywords
 
