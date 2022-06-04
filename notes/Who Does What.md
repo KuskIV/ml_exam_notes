@@ -1,7 +1,7 @@
 ---
 title: Who Does What
 created: '2022-06-02T08:16:27.258Z'
-modified: '2022-06-03T14:18:29.953Z'
+modified: '2022-06-04T08:22:11.524Z'
 ---
 
 # Who Does What
@@ -12,7 +12,7 @@ modified: '2022-06-03T14:18:29.953Z'
 | 2       | Jeppe       |
 | 3       | Mads        |
 | 4       | Mads        |
-| 5       |             |
+| 5       | Mads        |
 | 6       |             |
 | 7       |             |
 | 8       |             |
