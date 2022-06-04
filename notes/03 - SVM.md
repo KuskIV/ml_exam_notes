@@ -1,10 +1,12 @@
 ---
 title: 03 - SVM
 created: '2022-06-02T07:47:01.507Z'
-modified: '2022-06-02T12:20:11.614Z'
+modified: '2022-06-04T07:23:22.535Z'
 ---
 
 # 03 - SVM
+
+This lecture continued and finished the topic of support vector machines. The main issue was to consider how non-linear data transformation can be used to make data that is not linear separable to begin with, linealy seperable in a suitable feature space. The main tool for this are kenrel functions, and this lecture specifically looked at how kernel function can be used to transform classification problems for structed data like string and grapoh into standard linear classification problems. 
 
 ## Keywords
 
@@ -133,9 +135,21 @@ Basic kernels include:
 
 ## Kernels for Non Standard Data
 
+When the data is non standard, kernels can still be used to classify.
+
 ### Term Frequency Vector
 
+For text
+
 A term frequency vectore, is a vector where each index represents how many times the index occurs. This could be based on a text, where the vector will be words, and each index will be how many times a given word occurs in a text.
+
+## Cosine Similarity
+
+$$\text{cos-sim}(t_1, t_2)=cosine(0)=\frac{tf(t_1)\circ tf(t_2)}{\| tf(t_1) \ \circ \| tf(t_2) \|}$$
+
+cos-sim is a positive semi-definite kernel: normalization of plain dot product. com-sim is exstensively used in information retrival as a measure of similarity between documents
+- $t_1$: A short query text
+- $t_2$: A candidate document that may be returned for query $t_1$
 
 ## Summary
 
