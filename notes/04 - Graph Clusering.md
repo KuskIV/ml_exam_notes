@@ -2,7 +2,7 @@
 attachments: [Clipboard_2022-06-03-13-15-57.png]
 title: 04 - Graph Clusering
 created: '2022-06-02T07:47:17.755Z'
-modified: '2022-06-03T15:06:50.407Z'
+modified: '2022-06-04T08:17:52.494Z'
 ---
 
 # 04 - Graph Clusering
@@ -72,11 +72,13 @@ $$Q=\sum_i (e_{ii}-a^2_i) = \text{Tr e}-\| e^2\|$$
 
 Where $\| x \|$ indicates the sum of the elements of the matric $x$. This quantity measures the fractino of the edges in the network that connectino vertices of the same type (i.e. within community edges) minus the expected value of the same quantity in a network with the same community divisions by random connection between the vertices. If the numer of within-community edges i no better than random, we well get $Q=0$. Values approaching $Q=1$, which is the maximum, indicate networks with strong community structure. In practice, values for such networks typically fall in the range from $0.3$ to $0.7$. Higher values are rare. Typically  we will calculate $Q$ for each split of a network into communities as we move down the dendogram, and look for local peask in its value, which indicate particularly satisfactory splits. Uwually there are one or two of such peaks.
 
+__NOTE__: Modularity cannot be optimized directly, as exact solution is NP hard
+
 ## Mixture Model for Clustering
 
 ## Gaussian Mixture Models
 
-Clustering is an unsupervised learning problem where we intend to find clusters of points in our dataset wit similar characteristics. When considering clustering methods, they can be hard (like K-Means) where each point is only assigned to one cluster. There is not uncertainty measure or probabilyty for other clusters the point could belong to. This is something Gaussian Mixture addresses, by represengin clusters as Gaussian distributions.
+Clustering is an unsupervised learning problem where we intend to find clusters of points in our dataset wit similar characteristics. When considering clustering methods, they can be hard (like K-Means) where each point is only assigned to one cluster. There is not uncertainty measure or probabilyty for other clusters the point could belong to. This is something Gaussian Mixture addresses, by represengin clusters as Gaussian distributions. Another advantage is that it does not have a bias towards circular clusters, wo it works well even with non-linear data distributions.
 
 A Gaussian Mixture is a function cimprised of several Gaussians, each identified by $k \in \{1, \dots, K\}$, where $K$ is the number of clusters.Eahc Gaussian $k$ in the mixture is comprised of the following parameters:
 
@@ -90,8 +92,15 @@ When applying Gaussian Mixture Models, in can be done using Expectation Maximiza
 
 ## Latent Mixture Random Graph Model
 
-Graph Mixture Model
+A mixture model is a probabilistic model for representing the presence of subpopulations within an overall population.
 
+For Random Graph Models; two-stage sampling procedure for graphs: given number of nodes $n$
+
+__step 1__ for each node $v_i$, sample latent coordinates z_i \in \mathbb{R}^d$ according to a Gaussian Mixture Model
+
+__step 2__ For each pair of nodes $v_1, v_j$, sample the value of a boolean edge valiable $E_{i,j}$ according to logistic regression model dependent on Euclidian distance between latent coordinates.
+
+The input is a graph with unlabeled nodes and target number of clusters $k$. The task is to determine model parameters and latent coordinates. Nodes are then clustered by applying the Gaussian Mixture Model to the points.
 
 
 
