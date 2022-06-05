@@ -16,7 +16,29 @@ __Inductive__: The graph used for training, can be differen. Nodes that are clas
 
 ## Homophily
 
-Homophily is when a link between individuals (such as friendshp or other social connection) is correlated with those individuals being similar in nature. For example, friends often tend to be similar in characteristics like age, social background and education leve.
+Homophily is when a link between individuals (such as friendship or other social connection) is correlated with those individuals being similar in nature. For example, friends often tend to be similar in characteristics like age, social background and education level.
+
+## Independent classification:
+__Generic approach__
+- Define a set of **node features** $X_1 \dotsb X_K$
+- For each node $v \in V_I$, constrict the training example
+$$ (X(v), Y(v))=(X_1(v), \cdots X_K(v), Y(v))$$
+- Use standard machine learning approach to learn a classifier from the examples
+- For nodes $u \in V_u$: calculate feature vector $X(u)$, and predict $Y(u)$
+
+__Node features construction:__
+- $X(v) = A(v)$, with $A$ a node attribute.
+- $X(v) = d(v)$
+- $X(v) = aggr{A(u) | u:(v,u) \in E}$: aggregate of attribute values of linked nodes.
+- $X(v)$ Boolean function for a property of graph neighborhood.
+- $X(v) = PageRank(v)$
+
+## Label propagation
+Label Propagation Algorithm (LPA) is an iterative algorithm where we assign labels to unlabelled points by propagating labels through the dataset.
+__Characteristics__
+- No node features
+- Transductive classification exploiting homophily
+- For unlabeled nodes compute probability distribution over class labels
 
 
 
