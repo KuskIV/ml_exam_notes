@@ -1,8 +1,8 @@
 ---
-attachments: [Clipboard_2022-06-04-14-48-11.png]
+attachments: [Clipboard_2022-06-04-14-48-11.png, Clipboard_2022-06-05-09-27-45.png]
 title: 06 - Neural Networks
 created: '2022-06-02T07:48:06.786Z'
-modified: '2022-06-04T12:58:35.665Z'
+modified: '2022-06-05T09:59:26.566Z'
 ---
 
 # 06 - Neural Networks
@@ -59,7 +59,68 @@ With some datasets growing in size, it is becoming more common to use each train
 
 ## Momentum
 
-The method of momentum is designed to accelerate learning, specially in the face of high curvature
+The method of momentum is designed to accelerate learning, specially in the face of high curvature^[The amount by which a curve deviates from being a straight line], small but consistent gradients or noisy gradients. The algorithm accumalates an exponentially decaying moving average of past gradients and ocntinues to move in their direction.
+
+This is achieved by introducing a variable $v$ representing the direction and speed at which the parameters move through parameter space and is set to an exponentionally decaying average of the negative gradient.
+
+![](@attachment/Clipboard_2022-06-05-09-27-45.png)
+
+Previoulsy the size of the stp was the norm of the gradient multiplied by the learning rage. Now it depends on how large and how aligned a sequence of gradients are. The step size is largest when many successive gradients points are in exactly the same direction.
+
+The momentum hyperparameter can be through of as $\frac{1}{1-\alpha}$, where $\alpha=0.9$ corresponds to multiplying the maximum speed by $10$ relative to the gradience descent algorithm. Common values for $\alpha$ is $0.5$, $0.9$ and $0.99$ and it can be adapted over time, where it is increases over time.
+
+## Nesterov Momentum
+
+Similar to momentum, where the difference is where the gradient is evaluated. It is now evaluated after the current velocity is applied. This is done to attempto to add the _correct factor_ to the method.
+
+## Vanishing Gradients
+
+As more layers using certain actiation funcionts (like sigmoid) are added to neural networks, the gradients of the loss function approaches zero, making it hard to learn.
+
+It is not an issue for smaller networks, but with $n$ hidden layers using sigmoid, $n$ small derivativese are multiplied together, making the gradient expotentially small.
+
+In the case for sigmoid, the issue is that the output space is between 0 and 1. The issue is a large change in the input space for the sigmoid function will cause a small change in the output. Hence, the derivative becomes small.
+
+A solution is to use ReLU, which does not have small derivatives. An issue with ReLU is a dying ReLU problem, where many neurons only output 0. This is solved by Leaky ReLU has a small slope for negative values instead of a flat slope.
+
+## Dropout
+
+Dropout refers to how a nerual network can choose to ignore neurons during training, choosen at random. Ignoring refers to the network not considering these neurons duing a particular forward and backward pass. 
+
+At each training stage, indicidual neurons are either dropped out of the network with some probability, so a reduced network is left.
+
+It is done to avoid overfitting.
+
+
+## $L^*$ Parameter Reqularization
+
+Regularization adds a penalty to the loss function of the model as it becomes more complex, to avoid overfitting.
+
+L1 penalizes sum of absolute value of weights
+
+L2 penalizes sum of square weights.
+
+
+
+## Chain Rule of Calculus
+
+The chain rule is used to compute the derivatives of functions formed by composing other functions whose derivaties are known, and is used by back-propagation.
+
+The chain rule says:
+
+$$\frac{d}{dx} \left [ f(g(x)) \right ]=f'(g(x))g'(x)$$
+
+It tells us how to differentiate composit functions, where a function is composit if you can write it as $f(g(x))$, meaning it is a function of a function.
+
+## Back-Propagation
+
+Forward propagation is when the network accepts an input $x$, which flows through the network to produce and output $\hat{y}$. During training forward propagation con cintinue onward until it produces a scalar loss, which flows back trough the network in order to compute the gradient, and this is back propagation.
+
+To compute the gradient of some scalar $z$ with respect to one of its ancestors $x$ in the graph, we begin by observing that the gradient with respect to $z$ is givne by $\frac{dz}{dz}=1$. We can then compute the gradient with respect to each parent of $z$ in the graph by multiplying the current gradient by the Jacobian of the operation that produced $z$. WE continue multiplying by Jacobians, traveling backward through the graph in this way until we reach $x$. For any node that may be reached by going backward from $z$ through two or more paths, sum the gradients arriving from different paths at that node.
+
+There is an example on slide 17 showing this.
+
+
 
 
 
