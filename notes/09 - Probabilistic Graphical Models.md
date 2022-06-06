@@ -16,7 +16,7 @@ Formally we characterize a HMM as a 5-tuple of the form $(S, V, A, B, \pi)$ wher
 > - $V = \{v_1, ..., v_M\}$ is the set of possible **observations** in the states (sensor measurements in TD lingo)
 > - $A$ is the **transition matrix**, which is a NxN matrix, where N is the number of states, and  $a_{ij} = P(q_{t+1} = S_i | q_t = S_j)$ is the probability of transitioning from state i at the time t to state j at the time t+1, if one can not transtion from one state to another of course then $a_{ij} = 0$
 > - $B$ is the **observation symbol probability distribution** in state j, it is given by $B = \{b_j(k)\}$, where $b_j(k) = P(V_k at t | q_t = S_j)$ that is it denotes the probabilitiy of observing the symmbol $V_k$ at time $t$ in state $S_j$
-> - $\pi$ is the **initial state distribution**, it is given by $\pi = \{\pi\}$, where $\pi = P(q_1 = S_i)$ that is it denotes the probabilitiy of starting in state $S_i$
+> - $\pi$ is the **initial state distribution**, it is given by $\pi = \{\pi\}$, where $\pi_i = P(q_1 = S_i)$ that is it denotes the probabilitiy of starting in state $S_i$
 
 Now what can we use such a HMM to? 
 
@@ -68,4 +68,9 @@ So now we see the full computations is $\mathcal{O}(2T \cdot N^T)$
 
 Now having considered the naive approach the effecient approach makes use of the **Forward-Backward procedure**. 
 
-Let $\alpha_t = P(O_1, O_2, \ldots, $
+First focus on the Forward part:
+
+Let $\alpha_t(i) = P(O_1, O_2, \ldots,O_t, q_t=S_i | \lambda)$ That is the probability of the partial observation sequence $O_1, O_2, \ldots, O_t$ (until time t) and the state $q_t = S_i$ given model parameters $\lambda$. That is observing all these observations and landing with state $q_t = S_i$.
+We can solve now inductively with for $\alpha_t$:
+
+1. Initialization: $\alpha_1(i) = \pi_ib_i(O_1) \quad\quad\quad\quad  1 \leq i \leq N$  
