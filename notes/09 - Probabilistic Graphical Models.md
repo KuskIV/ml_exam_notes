@@ -113,6 +113,14 @@ $\xi_t(i,j) = \frac{P(q_t=S_i, q_{t+1}=S_j, O | \lambda)}{P(O|\lambda)}$
 
 $ = \frac{\alpha_t(i)a_{ij}b_j(O_t) \beta_{t+1}(j)}{P(O | \lambda)}$
 
-$ = $
+$ = \frac{\alpha_t(i)a_{ij}b_j(O_t) \beta_{t+1}(j)}{\sum_{i=1}^N\sum_{j=1}^N \alpha_t(i)a_{i,j}b_j(O_{t+1})\beta_{t+1}(j)}$
+
+Similarly define now $\gamma_t(i)$ as the probability of being in state $S_i$ at time $t$ given the model $\lambda$ and the observation sequence $O$. 
+$\gamma_t(i) = \frac{\alpha_t(i)\beta_t(i)}{P(O|\lambda)} = \frac{\alpha_t(i)\beta_t(i)}{\sum_{i=1}^N\alpha_t(i)\beta_t(i)}$
+
+This can be computed also from our just defined $\xi_t(i,j)$, by:
+$\gamma_t(i) = \sum_{j=1}^N \xi_t(i,j)$
+
+Now 
 
 
