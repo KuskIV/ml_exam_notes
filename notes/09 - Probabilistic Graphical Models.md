@@ -66,7 +66,7 @@ $P(O|\lambda) = \sum_{\text{all} \ Q} P(O|Q,\lambda) = \sum_{q_1,q_2,\ldots,q_T}
 
 So now we see the full computations is $\mathcal{O}(2T \cdot N^T)$
 
-Now having considered the naive approach the effecient approach makes use of the **Forward-Backward procedure**. 
+Now having considered the naive approach the effecient approach makes use of the **Forward-Backward procedure**, which makes use of dynamic programming. 
 
 First focus on the Forward part:
 
@@ -74,3 +74,10 @@ Let $\alpha_t(i) = P(O_1, O_2, \ldots,O_t, q_t=S_i | \lambda)$ That is the proba
 We can solve now inductively with for $\alpha_t$:
 
 1. Initialization: $\alpha_1(i) = \pi_ib_i(O_1) \quad\quad\quad\quad  1 \leq i \leq N$  
+2. Induction: $\alpha_{t+1}(j) = \left[ \sum_{i=1}^N \alpha_t(i)a_{i,j}b_j(O_{t+1}) \right] \quad\quad\quad\quad 1 \leq t \leq T - 1, 1 \leq j \leq N$
+3. Termination
+$P(O|\lambda) = \sum_{i=1}^N \alpha_T(i)$
+
+As a matter of fact the forward procedure alone as we can see suffices to solve problem 1, however the backward procedure will be important for the following problems, so it is good to have a look at it. Now let's try and explain the three steps above of the forward procedure.
+In essence the forward procedure makes use of dynamic programming to solve subproblems, store them and reuse them in the larger problems which is composed of the subproblems. Image a grid with T rows and N colums, so in the first column (T=1) we have N option for what could have been the first state, similarly for column (2) so we move from left to right, and then when solving for example column 3 (T=3), we can make use of solutions for T-1.
+1. Here just initialized 
