@@ -96,7 +96,7 @@ That is given the observation sequence $O$ and the model parameters $\lambda$ ho
 Define $\delta_t(i) = \text{max}_{q_1,q_2,\ldots,q_{t-1}} P(q_1,\ldots,q_t=i,O_1,\ldots,O_t|\lambda)$
 that is $\delta_t(i)$ denotes the highest probability along a single path at time t, and ends in state s_i. Now considering the steps of the Viterbi algorithm:
 1. Initialization: $\delta_1(i) = \pi_ib_i(O_1)$ for each state $i$
-2. Recursion: $\delta_t(j) = \text{max}_{1 \leq i \leq N} \left( \delta_{t-1}(i)a_{ij}\right)b_j(O_t) $
+2. Recursion: $\delta_t(j) = \text{max}_{1 \leq i \leq N} \left( \delta_{t-1}(i)a_{ij}\right)b_j(O_t)$
 3. Termination $p* = \text{max}_{1 \leq i \leq N} \delta_T(i)$
 
 Along the computation we simply also just store the most likely state sequence $q_t$ at each time step, and then we can reconstruct the most likely state sequence by backtracking from the end. It is very similar to the forward procedure, now we just track which sequence is most likely.
