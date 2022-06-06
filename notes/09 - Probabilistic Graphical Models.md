@@ -144,4 +144,13 @@ $ = \frac{\sum_{t=1}^T  \gamma_t(i) \quad\quad \text{s.t.}  O_t=v_k}{\sum_{t=1}^
 Now these steps has to be applied iteratively until some stopping criterion, such as number of steps, or convergence saturation.
 Why the above reestimation techniques reaches/converges to local optimality (maximum) given in the littereature, and is out of the scope of these notes. The stochastic constraints, are satisfied in each iteration.
 
+The above tasks are renamed in the slides and are mentioned as the following <img src="..\attachments/hmm_tasks.png" width="400px" alt="slide 8">
+
+So now how can we solve these tasks from the slides with the acuqired knowledge?
+
+**Filtering**
+- makes use of the forward procedure as can be seen from slide:
+<img src="..\attachments/hmm_forward.png" width="400px">
+- alpha in the slides is the normalization constant so that is just $\sum_{\text{all states} \ \hat{X}} P(\hat{X}_{t+1} |O_{1:t+1})$
+
 
