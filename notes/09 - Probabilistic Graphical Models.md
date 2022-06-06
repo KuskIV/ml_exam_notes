@@ -55,7 +55,7 @@ The probability for observing the observation sequence given the sate sequence a
 
 The probability of the state sequence is:
 
-
+- $P(Q|\lambda) = \prod_{t=1}^T P(q_t|q_{t-1},\lambda) = \pi_{q_1}a_{q_1,q_2}a_{q_2,q_3}\ldots a_{q_{T-1},q_{T}}$
 
 $ \pi_1b_{q_1}(O_1)a_{q_1,q_2}b_{q_2}(O_2)\ldots a_{q_{T-1},q_T}b_{q_T}(O_T)$
 
