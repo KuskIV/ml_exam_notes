@@ -50,3 +50,4 @@ $P(O|Q,\lambda) = \prod_{t=1}^T P(O_t|q_t,\lambda)$
 
 So the probability of observing $O$ given $Q$ and $\lambda$ is just the product of observing each observation $O_t$ given the state $q_t$ and the model parameters $\lambda$. For this we would use $A$ the state transition matrix, and $B$ the observation symbol probability distribution and $pi$ the initial state distribution. Let's unpack this:
 - $$
+
