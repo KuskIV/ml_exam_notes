@@ -49,4 +49,15 @@ Now assume we have a fixed state sequence $Q = q_1, q_2, \ldots, q_T$, (we assum
 - $P(O|Q,\lambda) = \prod_{t=1}^T P(O_t|q_t,\lambda)$
 
 So the probability of observing $O$ given $Q$ and $\lambda$ is just the product of observing each observation $O_t$ given the state $q_t$ and the model parameters $\lambda$. For this we would use $A$ the state transition matrix, and $B$ the observation symbol probability distribution and $pi$ the initial state distribution. Let's unpack this:
-- $P(O|Q,\lambda) = \pi_1b_{q_1}(O_1)a_{q_1,q_2}b_{q_2}(O_2)\ldots a_{q_{T-1},q_T}b_{q_T}(O_T)$
+
+The probability for observing the observation sequence given the sate sequence and the model is:
+- $P(O|Q,\lambda) = b_{q_1}(O_1)b_{q_2}(O_2)\ldots b_{q_T}(O_T)$
+
+The probability of the state sequence is:
+
+
+
+$ \pi_1b_{q_1}(O_1)a_{q_1,q_2}b_{q_2}(O_2)\ldots a_{q_{T-1},q_T}b_{q_T}(O_T)$
+
+Now this was for one specific state sequence $Q$, to generalize we get:
+$P(O|\lambda) = \sum_{\text{all} \ Q} P(O|Q,\lambda)$
