@@ -132,7 +132,8 @@ Now with the above formulae and with the concept of counting event occurences, w
 
 $\overline{\pi} = \text{expected frequency (number of times) in state } S_i at time (t=1) = \gamma_1(i)$
 
-$\overline{a}_{i,j}=\frac{\text{The expected number of transitions from state} \ S_i \ \text{to state} S_j}{\text{The expected number of transitions from state} \ S_i}= \frac{\sum_{t=1}^T \xi_t(i,j)}{\sum_{t=1}^T \gamma_t(i)}$
+$\overline{a}_{i,j}=\frac{\text{The expected number of transitions from state} \ S_i \ \text{to state} S_j}{\text{The expected number of transitions from state} \ S_i}$
+$ = \frac{\sum_{t=1}^T \xi_t(i,j)}{\sum_{t=1}^T \gamma_t(i)}$
 
 $\overline{b}_j(k) = \frac{\text{expected number of times in state} \ j \ \text{and observing symbol} \ v_k}{expected number of times in state} j = $
 
