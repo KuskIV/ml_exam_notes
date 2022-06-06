@@ -57,7 +57,15 @@ The probability of the state sequence is:
 
 - $P(Q|\lambda) = \prod_{t=1}^T P(q_t|q_{t-1},\lambda) = \pi_{q_1}a_{q_1,q_2}a_{q_2,q_3}\ldots a_{q_{T-1},q_{T}}$
 
-$ \pi_1b_{q_1}(O_1)a_{q_1,q_2}b_{q_2}(O_2)\ldots a_{q_{T-1},q_T}b_{q_T}(O_T)$
+Now how to compute the joint probability of both observing $O$ and having the state sequence $Q$? We can compute the joint probability of $O$ and $Q$ as:
+
+- $P(O,Q) = P(O|Q,\lambda)P(Q|\lambda)$
 
 Now this was for one specific state sequence $Q$, to generalize we get:
-$P(O|\lambda) = \sum_{\text{all} \ Q} P(O|Q,\lambda)$
+$P(O|\lambda) = \sum_{\text{all} \ Q} P(O|Q,\lambda) = \sum_{q_1,q_2,\ldots,q_T} \pi_1b_{q_1}(O_1)a_{q_1,q_2}b_{q_2}(O_2)\ldots a_{q_{T-1},q_T}b_{q_T}(O_T)$
+
+So now we see the full computations is $\mathcal{O}(2T \cdot N^T)$
+
+Now having considered the naive approach the effecient approach makes use of the **Forward-Backward procedure**. 
+
+Let $\alpha_t = P(O_1, O_2, \ldots, $
