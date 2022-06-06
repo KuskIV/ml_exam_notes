@@ -6,12 +6,12 @@ modified: '2022-06-04T07:23:22.535Z'
 
 # 03 - SVM
 
-This lecture continued and finished the topic of support vector machines. The main issue was to consider how non-linear data transformation can be used to make data that is not linear separable to begin with, linealy seperable in a suitable feature space. The main tool for this are kenrel functions, and this lecture specifically looked at how kernel function can be used to transform classification problems for structed data like string and grapoh into standard linear classification problems. 
+This lecture continued and finished the topic of support vector machines. The main issue was to consider how non-linear data transformation can be used to make data that is not linear separable to begin with, lineally separable in a suitable feature space. The main tool for this are kernel functions, and this lecture specifically looked at how kernel function can be used to transform classification problems for structured data like string and graph into standard linear classification problems. 
 
 ## Keywords
 
-__Hyperplane__: The dividing line in placed to seperate the data
-__Support Vector__: Sampels on the edge of the boundry and are the most difficult to calssify.
+__Hyperplane__: The dividing line in placed to separate the data
+__Support Vector__: Samples on the edge of the boundary and are the most difficult to classify.
 
 ## Data Transformations
 
