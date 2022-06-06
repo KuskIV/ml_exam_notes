@@ -79,5 +79,14 @@ We can solve now inductively with for $\alpha_t$:
 $P(O|\lambda) = \sum_{i=1}^N \alpha_T(i)$
 
 As a matter of fact the forward procedure alone as we can see suffices to solve problem 1, however the backward procedure will be important for the following problems, so it is good to have a look at it. Now let's try and explain the three steps above of the forward procedure.
-In essence the forward procedure makes use of dynamic programming to solve subproblems, store them and reuse them in the larger problems which is composed of the subproblems. Image a grid with T rows and N colums, so in the first column (T=1) we have N option for what could have been the first state, similarly for column (2) so we move from left to right, and then when solving for example column 3 (T=3), we can make use of solutions for T-1.
-1. Here just initialized 
+In essence the forward procedure makes use of dynamic programming to solve subproblems, store them and reuse them in the larger problems which is composed of the subproblems. Image a grid/lattice with T rows and N colums, so in the first column (T=1) we have N option for what could have been the first state, similarly for column (2) so we move from left to right, and then when solving for example column 3 (T=3), we can make use of solutions for T-1.
+1. Here just initialized for each possible state what would be the probability of the first observation given the state.
+2. we make the inductive step, where we use solutions for T-1, transition to the assumed state j in T, and compute what is the probability of $\alpha_{T+1}(j) from $q_{t-1} = i \quad \quad \quad 1 \leq i \leq N$
+3. Termination each $\alpha_T(i)$ we will have N of these on for eact state, we sum then and we have computed as we wanted exactly the solution to problem 1, note that in practice we use log for numerical stability and avoid underflow. The forward procedure has complexity of $\mathcal{O}(T \cdot N^2)$
+
+Now we have already solve Problem 1, but let's consider what is the backward procedure, as it will be useful in the following.
+Let $\beta_t(i) = P(O_{t+1}, O_{t+2}, \ldots, O_T | q_t=S_i, \lambda)$ That is the probability of the partial observation sequence $O_{t+1}, O_{t+2}, \ldots, O_T$ (until time t) and the state $q_t = S_i$ given model parameters $\lambda$. That is observing (think backwards) all these observations and landing with state $q_t = S_i$. 
+1. Initialization: $\beta_T(i) = 1 \quad\quad\quad\quad  1 \leq i \leq N$
+
+
+
