@@ -38,3 +38,14 @@ Now we can use the HMM to solve the following 3 key basic problems:
 - <em>Problem 2:</em> Given a sequence of observations $O = O_1, O_2, \ldots, O_T$ and a HMM model specified by $\lambda = (A,B,\pi)$, how do we choose a corresponding state sequence $Q = q_1, q_2, \ldots, q_T$ that best explains the observation (most likely sequence of states)?
 - <em>Problem 3:</em> How do we adjust the model parameters $\lambda = (A,B,\pi)$ to maximize $P(O|\lambda)$? (that is increase the likelihood of the model parameters $\lambda$)
 
+### Solution to Problem 1
+Here we aim to solve the problem of computing the probability of a sequence of observations given a model. That is given $O = O_1, O_2, \ldots, O_T$ and a HMM model specified by $\lambda = (A,B,\pi)$, how do we compute $P(O|\lambda)$.
+
+One naive solution would be to enumerate all possible state transition $Q = q_1, q_2, \ldots, q_T$ and compute the probability of each state sequence $Q$ given the observation sequence $O$. This is a brute force approach and is computationally expensive as there will be $N^T$ such sequences that is $N$ denotes the number of states and $T$ the sequence length, hence assumming all possible such sequences with replacment, and $N^T$ is without even considering cost of computing the probability of $P(O|Q,\lambda) that is considering one such specific state sequence.
+
+However considering the computations will make the following better solution clearer, so we proceed showing the naive apporach:
+Now assume we have a fixed state sequence $Q = q_1, q_2, \ldots, q_T$, (we assume independence of the observations), so:
+- $P(O|Q,\lambda) = \prod_{t=1}^T P(O_t|q_t,\lambda)$
+
+So the probability of observing $O$ given $Q$ and $\lambda$ is just the product of observing each observation $O_t$ given the state $q_t$ and the model parameters $\lambda$. For this we would use $A$ the state transition matrix, and $B$ the observation symbol probability distribution and $pi$ the initial state distribution. Let's unpack this:
+- $$
