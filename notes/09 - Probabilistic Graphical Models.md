@@ -106,6 +106,13 @@ How do we adjust the model parameters $\lambda = (A,B,\pi)$ in order to maximize
 
 There is no known way to solve the optimization problem analytically. However we can optimize it locally using the Expectation-Modification **EM** algoirthm or using gradient methods. We will consider **EM**, which makes use of the **forward-backward** procedure.
 
+Define $\xi_t(i,j)$ as the probability of being in state $S_i$ at time $t$ and in state $S_j$ at time $t+1$, given the model $\lambda$ and the observation sequence $O$:
+$\xi_t(i,j) = P(q_t=S_i, q_{t+1}=S_j|O,\lambda)$
+The sequence of events leading up to $\xi_t(i,j)$ is $alpha_t(i)$ that is the forward sequence up to time $t$ ending in state $S_i$ and it is $beta_{t+1}(j)$ the backwards sequence to time $t+1$ ending in state $S_j$. Between these two we have the probability of the transition $a_{ij}$ and the probability of the observation $b_j(O_t)$. Using this expand on $\xi_t(i,j)$ to get the following:
+$\xi_t(i,j) = \frac{P(q_t=S_i, q_{t+1}=S_j, O | \lambda)}{P(O|\lambda)}$
 
+$ = \frac{\alpha_t(i)a_{ij}b_j(O_t) \beta_{t+1}(j)}{P(O | \lambda)}$
+
+$ = $
 
 
