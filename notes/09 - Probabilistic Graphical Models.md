@@ -167,3 +167,14 @@ So now how can we solve these tasks from the slides with the acuqired knowledge?
 <img src="..\attachments/hmm_forward_backward.png" width="400px">
 - from slide they describe forward procedure as: (is already given above when discuss filtering)
 - backward procedure as: <img src="..\attachments/hmm_backward.png" width="400px">
+
+**Most Likely Explanation**
+- To compute the most likely sequence of states, we use as disccussed the viterbi algorithm above, solution to Problem 2.
+
+**HMM Parameter Estimation**
+- Again this is similar to the explanation given above from the litterature syntax, this just give other notation if prefer.
+We can see that this follows from the following two slides:
+<img src="..\attachments/hmm_parameter_est.png" width="400px">
+<img src="..\attachments/hmm_parameter_est2.png" width="400px">
+
+
