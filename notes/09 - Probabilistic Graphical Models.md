@@ -98,7 +98,7 @@ that is $\delta_t(i)$ denotes the highest probability along a single path at tim
 1. Initialization: $\delta_1(i) = \pi_ib_i(O_1)$ for each state $i$
 2. Recursion: 
 
-$\delta_t(j) = \text{max}_{1 \leq i \leq N} \left( \delta_{t-1}(i)a_{ij}\right)b_j(O_t)$
+- $\delta_t(j) = \text{max}_{1 \leq i \leq N} \left( \delta_{t-1}(i)a_{ij}\right)b_j(O_t)$
 
 
 3. Termination $p* = \text{max}_{1 \leq i \leq N} \delta_T(i)$
