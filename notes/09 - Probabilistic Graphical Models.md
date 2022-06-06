@@ -46,7 +46,7 @@ One naive solution would be to enumerate all possible state transition $Q = q_1,
 However considering the computations will make the following better solution clearer, so we proceed showing the naive apporach:
 Now assume we have a fixed state sequence $Q = q_1, q_2, \ldots, q_T$, (we assume independence of the observations), so:
 
-$P(O|Q,\lambda) = \prod_{t=1}^T P(O_t|q_t,\lambda)$
+- $P(O|Q,\lambda) = \prod_{t=1}^T P(O_t|q_t,\lambda)$
 
 So the probability of observing $O$ given $Q$ and $\lambda$ is just the product of observing each observation $O_t$ given the state $q_t$ and the model parameters $\lambda$. For this we would use $A$ the state transition matrix, and $B$ the observation symbol probability distribution and $pi$ the initial state distribution. Let's unpack this:
-- $$
+- $P(O|Q,\lambda) = \pi_1b_{q_1}(O_1)a_{q_1,q_2}b_{q_2}(O_2)\ldots a_{q_{T-1},q_T}b_{q_T}(O_T)$
