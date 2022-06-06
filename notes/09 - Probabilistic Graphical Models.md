@@ -152,5 +152,18 @@ So now how can we solve these tasks from the slides with the acuqired knowledge?
 - makes use of the forward procedure as can be seen from slide:
 <img src="..\attachments/hmm_forward.png" width="400px">
 - alpha in the slides is the normalization constant so that is just $\sum_{\text{all states} \ \hat{X}} P(\hat{X}_{t+1} |O_{1:t+1})$
+- how to derive this formula is given by slide: 
+<img src="..\attachments/hmm_deriving_forward.png" width="400px">
+- from the notation of litterature that would be $P(q_{t+1} = S_i | O_1,\ldots,O_t, \lambda) = \alpha_i(t+1)$
+
+**Prediction**
+- Prediction formula can be done by see slide: 
+<img src="..\attachments/hmm_prediction.png" width="400px">
+- So we use same formula as for filtering, up to $t$ and then after we only consider the transition probabilities, but note we have to consider that each states could be reached at $t \leq i < k+1$ which is why the formula sums over $X_{t+k}$ denoting that it sums over all possible states
 
 
+**Smothning**
+- Is exactly using $\gamma_t(i)$ that is using both the forward and backward procedure, as we can see the proof for why this is on slide:
+<img src="..\attachments/hmm_forward_backward.png" width="400px">
+- from slide they describe forward procedure as: (is already given above when discuss filtering)
+- backward procedure as: <img src="..\attachments/hmm_backward.png" width="400px">
