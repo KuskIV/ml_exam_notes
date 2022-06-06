@@ -74,7 +74,7 @@ Let $\alpha_t(i) = P(O_1, O_2, \ldots,O_t, q_t=S_i | \lambda)$ That is the proba
 We can solve now inductively with for $\alpha_t$:
 
 1. Initialization: $\alpha_1(i) = \pi_ib_i(O_1) \quad\quad\quad\quad  1 \leq i \leq N$  
-2. Induction: $\alpha_{t+1}(j) = \left[ \sum_{i=1}^N \alpha_t(i)a_{i,j}b_j(O_{t+1}) \right] \quad\quad\quad\quad 1 \leq t \leq T - 1, 1 \leq j \leq N$
+2. Induction: $\alpha_{t+1}(j) = \left[ \sum_{i=1}^N \alpha_t(i)a_{i,j}\right]b_j(O_{t+1})  \quad\quad\quad\quad 1 \leq t \leq T - 1, 1 \leq j \leq N$
 3. Termination
 $P(O|\lambda) = \sum_{i=1}^N \alpha_T(i)$
 
@@ -87,6 +87,21 @@ In essence the forward procedure makes use of dynamic programming to solve subpr
 Now we have already solve Problem 1, but let's consider what is the backward procedure, as it will be useful in the following.
 Let $\beta_t(i) = P(O_{t+1}, O_{t+2}, \ldots, O_T | q_t=S_i, \lambda)$ That is the probability of the partial observation sequence $O_{t+1}, O_{t+2}, \ldots, O_T$ (until time t) and the state $q_t = S_i$ given model parameters $\lambda$. That is observing (think backwards) all these observations and landing with state $q_t = S_i$. 
 1. Initialization: $\beta_T(i) = 1 \quad\quad\quad\quad  1 \leq i \leq N$
+2. Induction: $\beta_{t}(i) = \sum_{j=1}^N a_{i,j}b_j(O_{t+1}) \beta_{t+1}(j) \quad\quad\quad\quad 1 \leq t \leq T - 1, 1 \leq i \leq N$
+
+Step 1 we just initalize to 1, and then in the inductive step 2, we compute by considering that we are in state $S_i$ at time $t$ ($\beta_t(i)$), and the way to be there is by having in one of the N states in step $t+1$ and having made the transition $a_ij$ and having the observation $b_j(O_{t+1})$ and lastly accounting for the remaining of the sequence $\beta_{t+1}(j)$
+
+### Solution to Problem 2
+That is given the observation sequence $O$ and the model parameters $\lambda$ how can we compute the most likely state sequence $Q$. To solve this we again use dynamic programming in what is called the Viterbi algorithm, to compute it. We proceed inductively by computing the most likely sequences of states q_0, and then consider q_0, q_1, and so on.
+Define $\delta_t(i) = \text{max}_{q_1,q_2,\ldots,q_{t-1}} P(q_1,\ldots,q_t=i,O_1,\ldots,O_t|\lambda)$
+that is $\delta_t(i)$ denotes the highest probability along a single path at time t, and ends in state s_i. Now considering the steps of the Viterbi algorithm:
+1. Initialization: $\delta_1(i) = \pi_ib_i(O_1)$ for each state $i$
+2. Recursion: $\delta_t(j) = \text{max}_{1 \leq i \leq N} \left( \delta_{t-1}(i)a_{ij}\right)b_j(O_t) $
+3. Termination $p* = \text{max}_{1 \leq i \leq N} \delta_T(i)$
+
+Along the computation we simply also just store the most likely state sequence $q_t$ at each time step, and then we can reconstruct the most likely state sequence by backtracking from the end. It is very similar to the forward procedure, now we just track which sequence is most likely.
+
+### Solution to Problem 3
 
 
 
