@@ -121,6 +121,21 @@ $\gamma_t(i) = \frac{\alpha_t(i)\beta_t(i)}{P(O|\lambda)} = \frac{\alpha_t(i)\be
 This can be computed also from our just defined $\xi_t(i,j)$, by:
 $\gamma_t(i) = \sum_{j=1}^N \xi_t(i,j)$
 
-Now 
+Now we can estimate the two following quantities:
+
+$\sum_{t=1}^T \gamma_t(i) = \text{The expected number of transitions from state} \ S_i \ \text{across all time steps}$
 
 
+$\sum_{t=1}^T \xi_t(i,j) = \text{The expected number of transitions from state} \ S_i \ \text{to state} S_j$
+
+Now with the above formulae and with the concept of counting event occurences, we can give the method for reestimation of the parameters of the model $\lambda$,
+
+$\overline{\pi} = \text{expected frequency (number of times) in state } S_i at time (t=1) = \gamma_1(i)$
+
+$\overline{a}_{i,j}=\frac{\text{The expected number of transitions from state} \ S_i \ \text{to state} S_j}{\text{The expected number of transitions from state} \ S_i}= \frac{\sum_{t=1}^T \xi_t(i,j)}{\sum_{t=1}^T \gamma_t(i)}$
+
+$\overline{b}_j(k) = \frac{\text{expected number of times in state} \ j \ \text{and observing symbol} \ v_k}{expected number of times in state} j = $
+
+
+Now these steps has to be applied iteratively until some stopping criterion, such as number of steps, or convergence saturation.
+Why the above reestimation techniques reaches/converges to local optimality (maximum) given in the littereature, and is out of the scope of these notes. The stochastic constraints, are satisfied in each iteration.
