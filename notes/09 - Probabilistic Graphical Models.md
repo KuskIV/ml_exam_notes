@@ -136,7 +136,9 @@ $\overline{a}_{i,j}=\frac{\text{The expected number of transitions from state} \
 
 $ = \frac{\sum_{t=1}^T \xi_t(i,j)}{\sum_{t=1}^T \gamma_t(i)}$
 
-$\overline{b}_j(k) = \frac{\text{expected number of times in state} \ j \ \text{and observing symbol} \ v_k}{expected number of times in state} j = \frac{\sum_{t=1}^T  \gamma_t(i) \quad\quad \text{s.t.}  O_t=v_k}{\sum_{t=1}^T\gamma_t(i)}$
+$\overline{b}_j(k) = \frac{\text{expected number of times in state} \ j \ \text{and observing symbol} \ v_k}{\text{expected number of times in state} \ j}$
+
+$ = \frac{\sum_{t=1}^T  \gamma_t(i) \quad\quad \text{s.t.}  O_t=v_k}{\sum_{t=1}^T\gamma_t(i)}$
 
 
 Now these steps has to be applied iteratively until some stopping criterion, such as number of steps, or convergence saturation.
