@@ -102,6 +102,10 @@ that is $\delta_t(i)$ denotes the highest probability along a single path at tim
 Along the computation we simply also just store the most likely state sequence $q_t$ at each time step, and then we can reconstruct the most likely state sequence by backtracking from the end. It is very similar to the forward procedure, now we just track which sequence is most likely.
 
 ### Solution to Problem 3
+How do we adjust the model parameters $\lambda = (A,B,\pi)$ in order to maximize the probability of the observation sequence $P(O|\lambda)$? That is how do fit the model to the data.
+
+There is no known way to solve the optimization problem analytically. However we can optimize it locally using the Expectation-Modification **EM** algoirthm or using gradient methods. We will consider **EM**, which makes use of the **forward-backward** procedure.
+
 
 
 
