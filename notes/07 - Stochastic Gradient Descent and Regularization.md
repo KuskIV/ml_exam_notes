@@ -1,7 +1,7 @@
 ---
 title: 07 - Stochastic Gradient Descent and Regularization
 created: '2022-06-04T10:04:14.821Z'
-modified: '2022-06-05T12:29:16.178Z'
+modified: '2022-06-06T08:08:48.173Z'
 ---
 
 # 07 - Stochastic Gradient Descent and Regularization
@@ -50,7 +50,49 @@ The output feature maps of the final convolution or pooling layer is usually tra
 
 Recurrent neural networks (RNN) are best when it is used on sequential inputs, such as speech and language. They are a variant of the conventional feedforward artificial neural networks that can deal with sequential data and can be trained to hold the knowledge about the past.
 
+They are adapted to work for time series data or data that involves sequenes, where ordinary networks are only meant for data points which are independent of each other. When we have data points in a sequence where each point depends on the previous point a modification to incorporate these dependenies are required. RNN have the concept of menory, that helps them store states of information of previous inputs to generate the next output. 
 
+RNNs has a feedback loop, which can be unrolled $k$ times. At every step we can unfold the network for $k$ time steps to get the output at time step $k+1$. The unfolded network is very similar to the feedforward network.
+
+### Training a Recurrent Neural Network
+
+The backpropagation algorithm of an artificial network is modified to include the unfolding in time to train the weights of the network. In the pseudo code below, $h$ is the hidden sstatel, $k$ is a value set by the user and $p_t$ is the target value at time $t$:
+
+```python
+while stopping_condition_not_met():
+  set_all_h_to_zero()
+  for i in range(n-k):
+    forward_propagate() # forward propagate the network over the unfolded network for k times to compute all h and y 
+    e = y_t - p_t # compute the error
+    back_propagate(e) # backpropagate the error across the unfolded network and update the weights
+```
+
+### Types of RNNs
+
+There are different types of RNNs with varying architectures, some of these include:
+- **One-to-one**: Here there is a single $(x_t, y_t)$ pair. Traditional NN employ a similar architecture
+- **One-to-many**: A single input at $x_t$ can produce multiple outputs, e.g. $(y_{t0}, y_{t1}, y_{t2})$. This is used in music generation.
+- **Many-to-one**: When many inputs from different timesteps produce a single output, $(x_t, x_{t+1}, x_{t+2})$ produce $y_t$. Such networks are employed in sentiment analysis, where the cclass label depends upon a sequence of words.
+- **Many-to-many**: There are many exampels of this, for example when two inputs produce three outputs. These networks are used in translation, like english to french.
+
+### Pros and cons
+
+Pros:
+- Ability to handle sequence data
+- Ability to handle inputs of varying leghts
+- Ability to sore historical information
+
+Cons:
+- Computation can be very slow
+- The network does not take into account future inputs to make decisions
+- Vanishing gradient problem, where the gradients used to compute the weight update may get very close to zero, preventing the network from learning new weights. The deeper the network, the more pronouced is this problem.
+
+### Different RNN Architectures
+
+There are different kinds of RNN:
+- **Bidirectional Recurrent Neural Network (BRNN)**: Inputs from future time steps are used to improve the accuracy of the network. It is like having knowledge of the first and last wods of a sentence to predict the middle word.
+- **Gated Recurrent Units (GRU)**: Designed to handle vanishing gradient problem. They have a reset and update gate to determine which information to be retained for future predictions
+- **Long Short Term Memory (LSTM)**: Designed to handle vanishing gradient proble. They have input, output and forget gate to determine which information to retain
 
 
 
