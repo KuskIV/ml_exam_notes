@@ -1,7 +1,7 @@
 ---
 title: 08 - Probabilistic Graphical Models
 created: '2022-06-02T07:48:49.189Z'
-modified: '2022-06-04T10:04:10.764Z'
+modified: '2022-06-07T11:24:00.625Z'
 ---
 
 # 08 - Probabilistic Graphical Models
@@ -36,7 +36,7 @@ Definition: A bayesian network consists of the following:
 
 Bayesian networks use Bayesian inference for probability computations. They model conditional dependence and therefore causation by representing conditional dependence by edges in a directed graph.
 
-![alt text]( \../attachments/bayesianex.png "Title")
+![](@attachment/bayesianex.png)
 
 With given probabilities for each variable i.e. P(A) = (.92, .08)
 
@@ -75,7 +75,7 @@ General algorithm for finding maximum likeihood estimates for a set of parameter
 
 Example:
 
-![alt text]( \../attachments/EMexam.png "Title")
+![](@attachment/EMexam.png)
 
 In the case of a complete dataset, to find the distribution of P(Pr = yes) we would use the following:
 $P(Pr = yes) = \frac{N(Pr = yes)}{N}$
