@@ -45,12 +45,23 @@ Consider slide here to pose the Node Classification problem:
 In Node Classification we consider the distinction between between the transductive and inductive setting.
 
 **Transductive Node Classification Setting**
-- The graph here is fixed, that is cannot be changed/extended during inference. So we **know** already all existing vertices, so we can rely on a fixed graph structure (this is a limitation of the transductive setting).
+- The graph here is fixed, that is cannot be changed/extended during inference. So we **know** already all existing vertices, so we can rely on havin a fixed set of nodes (this is a limitation of the transductive setting).
 - ➥ all nodes Vu that need to be classified already known when learning the classifier
 - "Transfer" learning from one part of the graph to another part of the graph.
 
 **Inductive Node Classification Setting**
+- Here a Graph $G = ((V_l, V_u), E, A, Y)$ is used for training (possibly V_u = ∅).
+- Nodes that are classified can be new nodes, which are added to $G$, or even nodes in a different graph $G'$
+- Hence it has much more flexibility
 
+Before considering the GNN we will consider a more classical approach, known as the Random Graph Model, which works only in inherently transductive setting.
 
+It consists of a two-stage sampling procedure for graphs: Given a graph $G=(V,E)$.
 
+1. Step 1: for each node $v_i \in V$ sample latent coordinates $\mathbf{z}_i \in \mathbb{R}^d$ according to a Gaussian Mixture model:
+    - $\mathbf{z_i} ~ \sum_{j=1}^k \lambda_j \mathcal{N}(\mu_j,\sum_j)$
+1. Step 2: for each pair of nodes $v_i,v_j \in V$ sample the value of an Boolean edge variable $E_{i,j}$ according to logistic regression model dependent on Euclidean distance between latent coordinates: 
+    - $P(E_{i,j} | \mathbf{z}_i,\mathbf{z}_j) = \frac{\exp(\alpha - \beta||\mathbf{z_i} - \mathbf{z_j}||)}{1 + \exp(\alpha - \beta||\mathbf{z_i} - \mathbf{z_j}}$
 
+Why is the Random Graph Model transductive?
+- because the embedding of the nodes depends exactly on their relative distance, hence new nodes will not have a placement in this embedding, so can not be readily understood.
