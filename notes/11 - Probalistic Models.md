@@ -1,7 +1,7 @@
 ---
 title: 11 - Probalistic Models
 created: '2022-06-02T07:51:01.533Z'
-modified: '2022-06-02T07:51:39.416Z'
+modified: '2022-06-07T11:41:40.598Z'
 ---
 
 ## Probabilistic Graphical Models (PGMs)
@@ -34,7 +34,7 @@ Approximate the true posterior distribution $p(z|x)$ with a variational distribu
 
 To formulate inference as an optimization problem, we need to choose an approximating family $Q$ and an optimization objective $J(q)$. This objective needs to capture the similarity between $q$ and $p$; the field of information theory provides us with a tool for this called the Kullback-Leibler (KL) divergence.
 
- $$KL(f \| g) = \int_Z f(Z) log(\frac{f(Z)}{g(Z)}) dz = \matchbb{E}_f \0[ log (\frac{f(Z)}{g(z)})\]    $$
+ $$KL(f \| g) = \int_Z f(Z) log(\frac{f(Z)}{g(Z)}) dz = \mathbb{E}_f 0[ log (\frac{f(Z)}{g(z)})]$$
 
  **Assumptions about variational distribution**
  We will often use the mean field, which states that $Q$ consists of all distributions that factorizes according to the equation:
