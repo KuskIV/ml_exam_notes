@@ -95,3 +95,5 @@ A limitation of the shallow embedding is that they are inherently transductive, 
 - Examples: graph kernels, GNNs
 - works in inductive setting, hence also for transductive setting.
 
+**GNNs with Message Passing/Graph Convolutions**
+In the following we will discuss GNNs with message passing. There is a conenction with message passing and convolutions. Message passing is the idea that each node has neighbours and then these neighbours pass their embedding to the node, and the node performs some aggregation of these embeddings, hence its own embedding will depend on its neighbours, that is the graph structure. Now convultion operation is known from images, now think of a pixel as a node, now the kernel aggregates information from surrounding pixels, that is for example a 3x3 kernel will look at the surrounding pixels and aggregate the pixel values, similarly the message passing is "convolving" the embeddings of the neighbours. That is why we talk about the connection between message passing and convolution operation.
