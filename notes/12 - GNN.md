@@ -138,3 +138,5 @@ Graph classificatino see slide here:
 
 Link prediction see slide here:
 <img src="..\attachments\gcn_arch_link_prediction.png" width="500px">
+
+So now with GCN, we can just get new graph or new nodes, compute their initial embeddings and then use the learned weights, to propagate the embeddings through the network, and then solve the respective task. When using general attributes from the embedding and not node id's we can use for inductive setting, (which implies also transductive setting).
