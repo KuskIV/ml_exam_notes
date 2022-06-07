@@ -47,6 +47,10 @@ In Node Classification we consider the distinction between between the transduct
 **Transductive Node Classification Setting**
 - The graph here is fixed, that is cannot be changed/extended during inference. So we **know** already all existing vertices, so we can rely on a fixed graph structure (this is a limitation of the transductive setting).
 - ➥ all nodes Vu that need to be classified already known when learning the classifier
+- "Transfer" learning from one part of the graph to another part of the graph.
+
+**Inductive Node Classification Setting**
+
 
 
 
