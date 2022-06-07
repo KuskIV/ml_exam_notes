@@ -2,7 +2,7 @@
 attachments: [Clipboard_2022-06-04-14-48-11.png, Clipboard_2022-06-05-09-27-45.png]
 title: 06 - Neural Networks
 created: '2022-06-02T07:48:06.786Z'
-modified: '2022-06-05T12:31:14.246Z'
+modified: '2022-06-07T11:27:09.306Z'
 ---
 
 # 06 - Neural Networks
@@ -23,7 +23,7 @@ Feedforward neural networks approximates some function and maps an input to a ca
 
 ## Gradient-Based Optimization
 
-Gradient, is the rage of change. Most network algorithms utilize optimzation, which refer to the task of either minimizing (in most cases) or maximizing some function $f(x)$ by altering $x$. The function we want to minimize is the loss function.
+Gradient, is the rate of change. Most network algorithms utilize optimzation, which refer to the task of either minimizing (in most cases) or maximizing some function $f(x)$ by altering $x$. The function we want to minimize is the loss function.
 
 The derivative of a function specifies how to scale a small change in the input to obtain the corresponding change in the output. The derivative is therefore useful for minimizing a function as it tells us how to change x in order to make a small improvement on y. We for example know that $f(x-\epsilon * sign(f'(x)))$ is less than $f(x)$ for a small enough $\epsilon$, and we can thus reduce $f(x)$ by moving $x$ in small steps with the opposit sign of the derivative. This is what gradient descent is. When $f'(x)=0$, the derivative provides no information about which direction to move, and these are called stationalry points. A local minimum is a point where $f(x)$ is lower than at all neigboring points, so it is no longer possible to decrease $f(x)$ by making infinitesimal steps. Local maximum is the opposit.
 
