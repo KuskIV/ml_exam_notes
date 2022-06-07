@@ -117,7 +117,15 @@ Additionally the update function suggested above, will lead to numerical instabi
 **Attention weighthing of neigbours**
 In the basic above aggregation we just some all the neighbours, without considering which is more important. We can improve on this by using the attention mechanism, which will compute using some function $f$ the weighting factor $\alpha$ of the node and the neighbour to aggregate over. See slide here:
 <img src="..\attachments\gnn_attention_weighting.png" width="500px">
+- more options for $f$ is found in the litterature, for example the well known Bahdanau attention mechanism.
 
 **Skip connection**
+Imagine having many layers of message propagation, it can result in the following issues:
+ - in the all nodes in the network will start converging to far away neighbours(there are more of those), 
+ - over-smoothning all nodes become more/too similar,
+
+Here we can use skip connections to remediate this issue.
+- It encourages preservation of the information contained in $h^k(i)$ when constructing $h^{k+1}(i)$, a simple solution is seen from slide here:
+<img src="..\attachments\gnn_skip_connection.png" width="500px">
 
 **Use case overview**
