@@ -115,6 +115,8 @@ Additionally the update function suggested above, will lead to numerical instabi
 - the second which also considers also the number of neighbours of the neighbours, is more smart in that, it will be larger value for neightbours with small number of other neighbours, so it will increase importance of the special neighbours, which not many others are connected too.
 
 **Attention weighthing of neigbours**
+In the basic above aggregation we just some all the neighbours, without considering which is more important. We can improve on this by using the attention mechanism, which will compute using some function $f$ the weighting factor $\alpha$ of the node and the neighbour to aggregate over. See slide here:
+<img src="..\attachments\gnn_attention_weighting.png" width="500px">
 
 **Skip connection**
 
