@@ -1,7 +1,7 @@
 ---
 title: 01 - Linear Models
 created: '2022-06-02T07:46:32.019Z'
-modified: '2022-06-07T07:48:58.397Z'
+modified: '2022-06-07T08:33:04.604Z'
 ---
 
 # 01 - Linear Models
@@ -15,6 +15,20 @@ The number of classes in a problem is defined as $K$. Where the set of classes c
 For classification problems where $K=2$, the classes are represented by the labels $0$ and $0$.
 
 For classification problem where $K>2$, something called a 1-of-K coding scheme is used. Here a vector of length $K$ is used. If we have a class $C_j$ then all elements of the vector is zero except for the element $j$.
+
+## Linear Regression
+
+A linear model that assumes a linear relationship between the input variable and the output variable. When training, a linear equation is fittet to the observed data, where the loss is lowest, for example least square error. This, calculated the best-fitting line by minimizing the sum of squares of the vertical deviations from each point to the line. The optimal score is 0, and it is squared to cancel out between positive and negative values.
+
+## K-Nearest Neighbors
+
+Supervised ML algorithm used for classification and regression problems. It assumes similar things exists in close proximity.
+
+Consideratins when choosing k:
+- As K is decreased, predictions become less stable.
+- As K is increased, predictions becomes more stable due to majority voting/averaging. I can however become too large.
+
+Using the euclidian distance, we consider the k nearest neightbors, and the a point will be the same class as the majority of those. To avoid tiebreaks, avoid even k values.
 
 ## Discriminant functions
 A discriminant is a function that takes an input vector $x$ and assign's it to on of the $K$ classes. 
