@@ -1,7 +1,7 @@
 ---
 title: 01 - Linear Models
 created: '2022-06-02T07:46:32.019Z'
-modified: '2022-06-07T08:33:04.604Z'
+modified: '2022-06-07T08:47:58.174Z'
 ---
 
 # 01 - Linear Models
@@ -29,6 +29,18 @@ Consideratins when choosing k:
 - As K is increased, predictions becomes more stable due to majority voting/averaging. I can however become too large.
 
 Using the euclidian distance, we consider the k nearest neightbors, and the a point will be the same class as the majority of those. To avoid tiebreaks, avoid even k values.
+
+## Perceptron Algorithm
+
+A binary classifier utilizing a simple neural network. It consists of a single node and takes a row of data as input and predicts a class label. This is achieved by calculating the weighted sum of the inputs and a bias.
+
+$$\text{activation} = \text{weights} * \text{inputs} + \text{bias}$$
+
+If the activation is aboce 0, the model wil output 1, else it will output 0.
+
+It is a linear classifier algorithm, meaning it learns a decision boundary that seperates two classes using a hyperplane in the feature space.
+
+It is trained using the stochastic gradient descent optimizatino algorith, and stops trainig when the error falls to a low leve, or no longer improves, or a maximum number of epochs are performed.
 
 ## Discriminant functions
 A discriminant is a function that takes an input vector $x$ and assign's it to on of the $K$ classes. 
