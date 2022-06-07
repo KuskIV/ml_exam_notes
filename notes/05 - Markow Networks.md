@@ -1,8 +1,9 @@
 ---
 title: 05 - Markow Networks
 created: '2022-06-02T07:47:46.574Z'
-modified: '2022-06-04T10:02:01.927Z'
+modified: '2022-06-07T11:16:09.953Z'
 ---
+
 ## Keywords
 - Markov chain: Markov chains are a fairly common, and relatively simple, way to statistically model random processes. 
 - Clique: Clique in an undirected graph is a subgraph that is complete.
@@ -31,7 +32,7 @@ Homophily is when a link between individuals (such as friendship or other social
 __Generic approach__
 - Define a set of **node features** $X_1 \dotsb X_K$
 - For each node $v \in V_I$, constrict the training example
-$$ (X(v), Y(v))=(X_1(v), \cdots X_K(v), Y(v))$$
+$$(X(v), Y(v))=(X_1(v), \cdots X_K(v), Y(v))$$
 - Use standard machine learning approach to learn a classifier from the examples
 - For nodes $u \in V_u$: calculate feature vector $X(u)$, and predict $Y(u)$
 
@@ -69,15 +70,15 @@ Where the variable $Y_i \subseteq X$ form a fully connected subgraph (clique) in
 ## Gibbs Sampling
 Problem: compute a marginal probability $P_N(X=x)$.
 
-(approximate) solution: generate a sequence of samples:
-$X_1,X_2, \cdots \X_N$
+(approximate) solution: generate a sequence of samples: $X_1,X_2, \cdots X_N$
 So that the frequencies in the sample (approximate) match the marginal probability.
 
 The idea behind Gibbs sampling is to obtain new samples from previous sample by randomly changing the value of the only one selected variable.
 
 Computing the conditional probabilities in the sampling is done like this:
 $$P_N(X_K = x_K | X_{K} = x_{k}^{t-1}) = \frac{P_N(X_{t-1}^{k})}{P_N(x_{t-1}^{k})}$$
-$$\frac{1/Z \prod_i \phi_i (x_{t-1}^{\k}),x_k}{1/Z \sum_{x_{K}^{'}} \prod_i \phi_i (X_{k}^{t-1}, x_{k}^{'})}$$
+
+$$\frac{1/Z \prod_i \phi_i (x_{t-1}^{k}),x_k}{1/Z \sum_{x_{K}^{'}} \prod_i \phi_i (X_{k}^{t-1}, x_{k}^{'})}$$
 
 where the sum $\sum_{x_{K}^{'}}$ is over all possible values $X_{k}^{'}$ of $X_k$
 

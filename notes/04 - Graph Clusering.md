@@ -2,7 +2,7 @@
 attachments: [Clipboard_2022-06-03-13-15-57.png]
 title: 04 - Graph Clusering
 created: '2022-06-02T07:47:17.755Z'
-modified: '2022-06-04T08:17:52.494Z'
+modified: '2022-06-07T11:10:53.358Z'
 ---
 
 # 04 - Graph Clusering
@@ -19,7 +19,7 @@ The actors in a network tend to form groups of closely-knit connections. The gro
 
 ## Graph Clustering
 
-When performing network clustering, it is the task of extracgint the natual community structure from networks of vertices and edges.
+When performing network clustering, it is the task of extracting the natual community structure from networks of vertices and edges.
 
 ### Terminology and Notation
 
@@ -33,15 +33,19 @@ Find an algorithm to (approzimately) determine the clusering with optimal qualit
 
 ## Edge Betweenness
 
-Shortest path betweenness: We find the shortest path between all pairs of vertices and count how many run along each ege.
+One such measure, is edge betweenness.
+
+Shortest path betweenness: We find the shortest path between all pairs of vertices and count how many run along each ege. Calculated as:
 
 $$\beta(e)=\sum_{u,v\in V} \frac{\text{Numer of shortest path connection u, v going through e}}{\text{Numer of shortest paths connection u,v}}$$
 
 Defined as: Number of shortest path passing the edge.
 
-In order to find the shortest path between a partucular pair of vertizes can be done using breadth-first search, but a more efficient way is by using methods proposed by Newman and Brades, where Newman is implemented. But these are ouside the scope of this topic.
+In order to find the shortest path between a partucular pair of vertizes, breadth-first search can be used, but a more efficient way is by using methods proposed by Newman and Brades, where Newman is implemented in the work presented. But this are ouside the scope of this topic.
 
-The betweenness score calculated in the slide, is also just one way of doing it. In the paper they discuss multiple ways. Another way is the random walk betweenness, where signals travel along a random about the network until they reach their destination. The expected net numer of time a random walk between a particular of vertizes will pass down a particular edge and sum over all vertex paris. 
+The idea is to find the shortest path between all vertices in the graph, in order to locate edges used a lot, which can be concluded to be paths between clusters. 
+
+The shortest path betweenness is however just one kind of betweenneess, and the one used in the slides. In the paper they discuss multiple ways. Another way is the random walk betweenness, where signals travel random about the network until they reach their destination. The expected net numer of time a random walk between a particular of vertizes will pass down a particular edge and sum over all vertex paris. 
 
 Lastly where a unit resistance is placed on each edge of the network and unit current source and sink at a particular pair of vertices. The resulting current flow in the network will travel from source to sink along a multitude of paths, those with least resisteance carrying the greatest fraction of the current. the current-flow betweenness for and edge is defined to be the absolute value of the current along the edge summed over all source/sink paris.
 
@@ -96,7 +100,7 @@ A mixture model is a probabilistic model for representing the presence of subpop
 
 For Random Graph Models; two-stage sampling procedure for graphs: given number of nodes $n$
 
-__step 1__ for each node $v_i$, sample latent coordinates z_i \in \mathbb{R}^d$ according to a Gaussian Mixture Model
+__step 1__ for each node $v_i$, sample latent coordinates $z_i \in \mathbb{R}^d$ according to a Gaussian Mixture Model
 
 __step 2__ For each pair of nodes $v_1, v_j$, sample the value of a boolean edge valiable $E_{i,j}$ according to logistic regression model dependent on Euclidian distance between latent coordinates.
 
