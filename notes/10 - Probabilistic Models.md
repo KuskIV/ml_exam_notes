@@ -1,7 +1,7 @@
 ---
 title: 10 - Probabilistic Models
 created: '2022-06-02T07:50:14.551Z'
-modified: '2022-06-06T12:35:14.298Z'
+modified: '2022-06-07T07:39:10.332Z'
 ---
 
 # 10 - Probabilistic Models
@@ -16,6 +16,17 @@ A model consists of three types of variables:
 - Observatinos: Datapoints
 - Hidden variables: Encode hidden quantities
 - Hyperparameter: Non-random quanitities
+
+Latent variable models aim to model the probabilityy distribution with latent variables, where the latent variable will describe the data in a simpler way. Datapoints $x$ following a probability distriubtion $p(x)$, are mapped into latent variables $z$ that follow a distribution $p(z)$. 5 terms are relevant for this:
+- **Prior distribution**, $p(z)$: Models the behaviour of the latent variables
+- **Likelihood**, $p(x|y)$: Defines how to map latent variabese to the data points
+- **Joint distribution**, $p(x,z)=p(x|z)p(z)$: Describe the model
+- **Marginal distribution**, $p(x)$: The distribution of the original data
+- **Posterior distribution**, $p(z|x)$: Describes the latent variagles that can be produced by a specific data point.
+
+And two terms:
+- **Generation**: The process of computing the data point $x$ from the latent variable $z$. We move from latent space into the acctual data distribution.
+- **Inference**: The process of finding the latent variable $z$ from the data point $x$.
 
 ## Box's Loop
 
