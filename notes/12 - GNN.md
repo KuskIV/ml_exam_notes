@@ -97,3 +97,9 @@ A limitation of the shallow embedding is that they are inherently transductive, 
 
 **GNNs with Message Passing/Graph Convolutions**
 In the following we will discuss GNNs with message passing. There is a conenction with message passing and convolutions. Message passing is the idea that each node has neighbours and then these neighbours pass their embedding to the node, and the node performs some aggregation of these embeddings, hence its own embedding will depend on its neighbours, that is the graph structure. Now convultion operation is known from images, now think of a pixel as a node, now the kernel aggregates information from surrounding pixels, that is for example a 3x3 kernel will look at the surrounding pixels and aggregate the pixel values, similarly the message passing is "convolving" the embeddings of the neighbours. That is why we talk about the connection between message passing and convolution operation.
+
+Consider the following slide showing GNN message passing:
+<img src="..\attachments\gnn_message_passing.png" width="500px">
+- We can see at step 0 we initalize the vector embeddings
+- then at subsequent steps we use message passing, here we can see $\mathbf{W}^k \in \mathbf{R}^{d^{k+1}\times d^k}$ is the weight matrix for learning the weights of the nodes own embedding, $\mathbf{U}^k \in \mathbf{R}^{d^{k+1}\times d^k}$ is weight matrix for learning weights of the sum aggregation of the neighbours, and then $f$ is nonlinear activation function for example $\text{ReLU}(x) = max(x,0)$. 
+- below the slide give concise notation using full matrix notation to denote the exact same computation.
