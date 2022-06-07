@@ -23,14 +23,28 @@ Before more formally specifying GNNs we will consider some of the use cases of G
     - Is a molecule a mutagen?
     - Is molecule a drug for a disease?
 
-> **Formal Graph Definition** 
+> **Graph Definition** 
 >- A graph is given by $G=(V,E)$ where $V$ is a set of vertices and $E$ is a set of edges.
 >- An edge exists between two nodes $u,v \in V$ iff $(u,v) \in V$ 
->- In an undirected graph for $u,v \in V \ if \ (u,v) \in E \rightarrow (v,u) \in E$
->- An adjacency matrix is a $N\times N$ matrix $A$ where $A_{ij} = 1$ if there is and edge between nodes $i$ and $j$ and $0$ else. It can also be any real value, when representing a weight. $N = |V|$
+>- In an undirected graph for $u,v \in V \ if \ (u,v) \in E \rightarrow (v,u) \in E$ (symmetric)
+>- An adjacency matrix is a $N\times N$ matrix $\textbf{A}$ where $\textbf{A}_{ij} = 1$ if there is and edge between nodes $i$ and $j$ and $0$ else. It can also be any real value, when representing a weight. $N = |V|$
 
 We primarily consider undirected graphs.
 
 > **Graph in Node Classification Setting**
+- $G = ((V_l,V_u),E,A_t,Y)$
+    - $V_l$ is the set of labeled nodes
+    - $V_u$ is the set of unlabeled nodes
+    - $E$ is the binary edge relation as above 
+    - $A_t$ is the attributes 
+    - $Y$ is the labels
+
+Consider slide here to pose the Node Classification problem:
+<img src="..\attachments\gnn_node_class.png" width="500px">
+
+In Node Classification we consider the distinction between between the transductive and inductive setting.
+
+**Transductive Node Classification Setting**
+- 
 
 
