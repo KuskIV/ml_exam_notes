@@ -72,6 +72,8 @@ In the following we will focus on how to obtain embeddings for the nodes.
 
 Here we consider two distinctions **shallow embeddings** and **functional embeddings**.
 
+**Shallow Embedding**
+
 So what is shallow embeddings? Shallow embeddings where you take all the nodes give them an id, an then assign them initially a vector embedding i specified dimensionality, and then you optimize exclusively this embedding, disregarding other structural information. A way to learn/optimize the first randomly intiazlied shallow embeddings is through the reconstruction loss.
 In the reconstruction loss we aim to reconstruct the adjacency matrix, with for example squared error loss. Specifically consider: A graph $G= (V,E)$ we proceed in the following steps.
 1. Select dimensionality $d$
@@ -82,6 +84,14 @@ In the reconstruction loss we aim to reconstruct the adjacency matrix, with for 
 
 4. Repeat step 3. until convergence.
 
-A limitation of the shallow embedding is that they are inherently transductive, the embeddings depends on the specific training graph, and new nodes would not have id's/interpretation in that setting. More advanced forms of reconstruction loss are given in the litterate [hamilton]
+A limitation of the shallow embedding is that they are inherently transductive, the embeddings depends on the specific training graph, and new nodes would not have id's/interpretation in that setting. Usable for Link prediction given this reconstruction loss above. More advanced forms of reconstruction loss are given in the litterate [hamilton]
 
-Function
+**Functional Embedding**
+- We can use for Link prediction or Node Classification.
+- Given: one or several graphs
+- Learn a function $f: (V,E,A_t,Y), i \in V \rightarrow \textbf{z}_i $ maps nodes in a graph to a vector embedding.
+- Optimization in the space of parameters (weights) W defining the function.
+- Minimize a task specific loss function (node/edge/graph classification error)
+- Examples: graph kernels, GNNs
+- works in inductive setting, hence also for transductive setting.
+
