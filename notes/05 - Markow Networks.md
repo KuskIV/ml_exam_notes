@@ -77,7 +77,7 @@ The idea behind Gibbs sampling is to obtain new samples from previous sample by 
 
 Computing the conditional probabilities in the sampling is done like this:
 $$P_N(X_K = x_K | X_{K} = x_{k}^{t-1}) = \frac{P_N(X_{t-1}^{k})}{P_N(x_{t-1}^{k})}$$
-$$\frac{1/Z \prod_i \phi_i (x_{t-1}^{k}),x_k}{1/Z \sum_{x_{K}^{'}} \prod_i \phi_i (X_{k}^{t-1}, x_{k}^{'})}$$
+$$\frac{1/Z \prod_i \phi_i (x_{t-1}^{\k}),x_k}{1/Z \sum_{x_{K}^{'}} \prod_i \phi_i (X_{k}^{t-1}, x_{k}^{'})}$$
 
 where the sum $\sum_{x_{K}^{'}}$ is over all possible values $X_{k}^{'}$ of $X_k$
 
