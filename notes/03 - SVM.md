@@ -1,7 +1,7 @@
 ---
 title: 03 - SVM
 created: '2022-06-02T07:47:01.507Z'
-modified: '2022-06-04T07:23:22.535Z'
+modified: '2022-06-07T10:35:08.242Z'
 ---
 
 # 03 - SVM
@@ -12,6 +12,7 @@ This lecture continued and finished the topic of support vector machines. The ma
 
 __Hyperplane__: The dividing line in placed to separate the data
 __Support Vector__: Samples on the edge of the boundary and are the most difficult to classify.
+**Margin**: The distance seperating the closest pair of data point belonging to opposit classes
 
 ## Data Transformations
 
@@ -123,9 +124,21 @@ $$K(x,z)=\phi(x)\cdot \phi(z)$$
 
 For some feature mapping $\phi$, if and only if for all finite sets of points $x_1, \dots, x_n$ the kernel matrix is positive semi-definite.
 
+### The Kernel Trick
+
+When it is not possible to seperate data in a low dimensionalirty, additional dimensions are added. This enables us to seperate the data linearly, but when operations are performed with higher dimensions, this can lead to extremely high and inpractical computation costs, especially if many dimensions are added.
+
+This is what the kernel trick solves. The tick is that kernel methods represents the data only through a set of pairwise similarity comparisons between the original data in the low dimensionality, instead of applying the transformation, and representing the data in a higher dimensional feature space.
+
+The benifit is that the objective function we are optimizing to fit the higher dimensional decision boundry only includes the dot product of the transformed vectors. Therefore we can just substitue these dot product terms with the kernel function without using $\phi(x)$, meaning we find the optimal hyperplane using the hither dimensional space, without having to calculate or in reality eve know anything about $\phi(x)$.
+
+
+
 ### Kernels
 
-Is a function which allows us to create a non-linear hyperplance. A kernel cannot be a kernel unless it satisfies Mercers theorem, whichh emans thath the kernel should be a symmetric continuous function.
+The kernel function is equal to the dot product of the transformed vectors.
+
+Is a function which allows us to create a non-linear hyperplance. A kernel cannot be a kernel unless it satisfies Mercers theorem, which demans that the kernel should be a symmetric continuous function.
 
 Basic kernels include:
 - Polynomial Kernel: $(x*z+1)^p$

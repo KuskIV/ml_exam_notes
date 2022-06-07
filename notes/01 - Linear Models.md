@@ -1,7 +1,7 @@
 ---
 title: 01 - Linear Models
 created: '2022-06-02T07:46:32.019Z'
-modified: '2022-06-07T08:47:58.174Z'
+modified: '2022-06-07T08:55:54.094Z'
 ---
 
 # 01 - Linear Models
@@ -25,7 +25,7 @@ A linear model that assumes a linear relationship between the input variable and
 Supervised ML algorithm used for classification and regression problems. It assumes similar things exists in close proximity.
 
 Consideratins when choosing k:
-- As K is decreased, predictions become less stable.
+- As K is decreased, predictions become less stable. A low k can also lead to overfitting
 - As K is increased, predictions becomes more stable due to majority voting/averaging. I can however become too large.
 
 Using the euclidian distance, we consider the k nearest neightbors, and the a point will be the same class as the majority of those. To avoid tiebreaks, avoid even k values.
@@ -41,6 +41,11 @@ If the activation is aboce 0, the model wil output 1, else it will output 0.
 It is a linear classifier algorithm, meaning it learns a decision boundary that seperates two classes using a hyperplane in the feature space.
 
 It is trained using the stochastic gradient descent optimizatino algorith, and stops trainig when the error falls to a low leve, or no longer improves, or a maximum number of epochs are performed.
+
+This model is less powerfull than SVM and NN. It cannot leanr to classify XOR.
+
+## Advantages with linear models
+They are unlikely to overfit (can still happen), easy to learn from dataand they are well understood.
 
 ## Discriminant functions
 A discriminant is a function that takes an input vector $x$ and assign's it to on of the $K$ classes. 
