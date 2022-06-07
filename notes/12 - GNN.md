@@ -103,3 +103,12 @@ Consider the following slide showing GNN message passing:
 - We can see at step 0 we initalize the vector embeddings
 - then at subsequent steps we use message passing, here we can see $\mathbf{W}^k \in \mathbf{R}^{d^{k+1}\times d^k}$ is the weight matrix for learning the weights of the nodes own embedding, $\mathbf{U}^k \in \mathbf{R}^{d^{k+1}\times d^k}$ is weight matrix for learning weights of the sum aggregation of the neighbours, and then $f$ is nonlinear activation function for example $\text{ReLU}(x) = max(x,0)$. 
 - below the slide give concise notation using full matrix notation to denote the exact same computation.
+
+Slide below show how we can use a Graph Convolutional Network (GCN) (GNN with message passing) for node classification:
+<img src="..\attachments\gcn_arch_node_class.png" width="500px">
+- so in the final layer we can output the number of logits we want for a multi-class classification problem or binary output for single-class classification.
+
+However there is an issue with the GCN so far, that is it depends on the arbitrary ordering of the adjacency matrix, but we want an permutation invariant GNN, so here it is important to specify the initial embeddings not based node identifiers for example one-hot encoding, as then it would only work in transductive setting, but we must use for example attribute information to characterize the node embedding.
+
+Additionally the update function suggested above, will lead to numerical instability for nodes with large neighbour set. This can simply be solved by using normalization, see slide here:
+<img src="..\attachments\gnn_numerical_inst.png" width="500px">
