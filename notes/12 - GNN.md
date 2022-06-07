@@ -113,3 +113,9 @@ However there is an issue with the GCN so far, that is it depends on the arbitra
 Additionally the update function suggested above, will lead to numerical instability for nodes with large neighbour set. This can simply be solved by using normalization, see slide here:
 <img src="..\attachments\gnn_numerical_inst.png" width="500px">
 - the second which also considers also the number of neighbours of the neighbours, is more smart in that, it will be larger value for neightbours with small number of other neighbours, so it will increase importance of the special neighbours, which not many others are connected too.
+
+**Attention weighthing of neigbours**
+
+**Skip connection**
+
+**Use case overview**
