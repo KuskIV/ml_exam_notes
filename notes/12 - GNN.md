@@ -77,4 +77,8 @@ In the reconstruction loss we aim to reconstruct the adjacency matrix, with for 
 1. Select dimensionality $d$
 2. For each node $v_i \in V$ sample a vector $\mathbf{z}_i \in \mathbb{R}^d$ and fix it as its initial node embedding. Sampling can be from $\mathcal{N}(0,1)$ for example.
 3. Minimize the following construction loss:
-    - $\mathcal{L}(G) = \sum{i,j \in V} (\mathbf{z}_i,\mathbf{z}_i) $
+    - $\mathcal{L}(G) = \sum_{i,j \in V} (\mathbf{z}_i^\intercal \mathbf{z}_i - \mathbf{A_{i,j}})^2$
+4. Repeat step 3. until convergence.
+
+A limitation of the shallow embedding is that they are inherently transductive, the embeddings depends on the specific training graph, and new nodes would not have id's/interpretation in that setting. More advanced forms of reconstruction loss are given in the litterate [hamilton]
+
