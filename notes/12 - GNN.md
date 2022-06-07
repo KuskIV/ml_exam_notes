@@ -5,6 +5,10 @@ modified: '2022-06-02T07:52:00.766Z'
 ---
 
 # 12 - GNN
+Key litterature:
+- MJ slides from moodle page
+- [Graph Representation Learning, Hamilton](https://www.morganclaypool.com/doi/pdfplus/10.2200/S01045ED1V01Y202009AIM046?casa_token=tfO_fJZSzq4AAAAA:FTog3f3bZ6Cu91JsYmkN9Ytw0O3cmVSFB93iquBnbbOCItyf9_jJxFcwbJ9_Htc_5V-Tnk3lmqQp)
+
 Graph Neural Networks (GNN) is the application of neural networks to the graph data structure. It is a powerful technique, which has recently gained a lot of traction in DL. The key ideas the GNN's revolve around is the idea of representing the nodes as vector embeddings for a concise and powerful representation, the edges could in theory also be represented through embeddings, but are typically not in the methods covered here. So how the edges are used in GNNs is that they denote the structure of the graph, they specify which to nodes have links between them and the weight of such edge if the edges are weighted, and they are used in the message passing algorithm also known as the Graph Convolutional Networks (GCN), this is a key idea, which we will expand upon. 
 
 Before more formally specifying GNNs we will consider some of the use cases of GNNs. We consider three overall categories of use cases:
@@ -54,7 +58,7 @@ In Node Classification we consider the distinction between between the transduct
 - Nodes that are classified can be new nodes, which are added to $G$, or even nodes in a different graph $G'$
 - Hence it has much more flexibility
 
-Before considering the GNN we will consider a more classical approach, known as the Random Graph Model, which works only in inherently transductive setting.
+Before considering the GNN we will consider a more classical approach, known as the Random Graph Model.
 
 It consists of a two-stage sampling procedure for graphs: Given a graph $G=(V,E)$.
 
@@ -63,5 +67,14 @@ It consists of a two-stage sampling procedure for graphs: Given a graph $G=(V,E)
 1. Step 2: for each pair of nodes $v_i,v_j \in V$ sample the value of an Boolean edge variable $E_{i,j}$ according to logistic regression model dependent on Euclidean distance between latent coordinates: 
     - $P(E_{i,j} | \mathbf{z}_i,\mathbf{z}_j) = \frac{\exp(\alpha - \beta||\mathbf{z_i} - \mathbf{z_j}||)}{1 + \exp(\alpha - \beta||\mathbf{z_i} - \mathbf{z_j}}$
 
-Why is the Random Graph Model transductive?
-- because the embedding of the nodes depends exactly on their relative distance, hence new nodes will not have a placement in this embedding, so can not be readily understood.
+**Representation Learning**
+In the following we will focus on how to obtain embeddings for the nodes. 
+
+Here we consider two distinctions **shallow embeddings** and **functional embeddings**.
+
+So what is shallow embeddings? Shallow embeddings where you take all the nodes give them an id, an then assign them initially a vector embedding i specified dimensionality, and then you optimize exclusively this embedding, disregarding other structural information. A way to learn/optimize the first randomly intiazlied shallow embeddings is through the reconstruction loss.
+In the reconstruction loss we aim to reconstruct the adjacency matrix, with for example squared error loss. Specifically consider: A graph $G= (V,E)$ we proceed in the following steps.
+1. Select dimensionality $d$
+2. For each node $v_i \in V$ sample a vector $\mathbf{z}_i \in \mathbb{R}^d$ and fix it as its initial node embedding. Sampling can be from $\mathcal{N}(0,1)$ for example.
+3. Minimize the following construction loss:
+    - $\mathcal{L}(G) = \sum{i,j \in V} (\mathbf{z}_i,\mathbf{z}_i) $
