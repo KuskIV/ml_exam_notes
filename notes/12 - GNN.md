@@ -60,5 +60,8 @@ It consists of a two-stage sampling procedure for graphs: Given a graph $G=(V,E)
 
 1. Step 1: for each node $v_i \in V$ sample latent coordinates $\mathbf{z}_i \in \mathbb{R}^d$ according to a Gaussian Mixture model:
     - $\mathbf{z_i} ~ \sum_{j=1}^k \lambda_j \mathcal{N}(\mu_j,\sum_j)$
-1. Step 2.
+1. Step 2: for each pair of nodes $v_i,v_j \in V$ sample the value of an Boolean edge variable $E_{i,j}$ according to logistic regression model dependent on Euclidean distance between latent coordinates: 
+    - $P(E_{i,j} | \mathbf{z}_i,\mathbf{z}_j) = \frac{\exp(\alpha - \beta||\mathbf{z_i} - \mathbf{z_j}||)}{1 + \exp(\alpha - \beta||\mathbf{z_i} - \mathbf{z_j}}$
 
+Why is the Random Graph Model transductive?
+- because the embedding of the nodes depends exactly on their relative distance, hence new nodes will not have a placement in this embedding, so can not be readily understood.
