@@ -6,6 +6,10 @@ modified: '2022-06-07T07:42:21.673Z'
 
 # 09 - Probabilistic Graphical Models
 
+Key literature used:
+- [A tutorial on hidden Markov models and selected applications in speech recognition](https://ieeexplore.ieee.org/document/18626)
+- TD slides on moodle page
+
 In probabilistic graphical models, the focus on the Hiddden Markov Model, which enables modeling temporal sequences of events, in terms of the probabilities of certain events happening in certain states.
 
 ## Specification of a HMM Model
