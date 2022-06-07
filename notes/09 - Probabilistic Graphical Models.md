@@ -1,10 +1,14 @@
 ---
 title: 09 - Probabilistic Graphical Models
 created: '2022-06-02T07:49:26.203Z'
-modified: '2022-06-02T07:50:02.823Z'
+modified: '2022-06-07T07:42:21.673Z'
 ---
 
 # 09 - Probabilistic Graphical Models
+
+Key literature used:
+- [A tutorial on hidden Markov models and selected applications in speech recognition](https://ieeexplore.ieee.org/document/18626)
+- TD slides on moodle page
 
 In probabilistic graphical models, the focus on the Hiddden Markov Model, which enables modeling temporal sequences of events, in terms of the probabilities of certain events happening in certain states.
 
@@ -81,7 +85,7 @@ $P(O|\lambda) = \sum_{i=1}^N \alpha_T(i)$
 As a matter of fact the forward procedure alone as we can see suffices to solve problem 1, however the backward procedure will be important for the following problems, so it is good to have a look at it. Now let's try and explain the three steps above of the forward procedure.
 In essence the forward procedure makes use of dynamic programming to solve subproblems, store them and reuse them in the larger problems which is composed of the subproblems. Image a grid/lattice with T rows and N colums, so in the first column (T=1) we have N option for what could have been the first state, similarly for column (2) so we move from left to right, and then when solving for example column 3 (T=3), we can make use of solutions for T-1.
 1. Here just initialized for each possible state what would be the probability of the first observation given the state.
-2. we make the inductive step, where we use solutions for T-1, transition to the assumed state j in T, and compute what is the probability of $\alpha_{T+1}(j) from $q_{t-1} = i \quad \quad \quad 1 \leq i \leq N$
+2. we make the inductive step, where we use solutions for T-1, transition to the assumed state j in T, and compute what is the probability of $\alpha_{T+1}(j)$ from $q_{t-1} = i \quad \quad \quad 1 \leq i \leq N$
 3. Termination each $\alpha_T(i)$ we will have N of these on for eact state, we sum then and we have computed as we wanted exactly the solution to problem 1, note that in practice we use log for numerical stability and avoid underflow. The forward procedure has complexity of $\mathcal{O}(T \cdot N^2)$
 
 Now we have already solve Problem 1, but let's consider what is the backward procedure, as it will be useful in the following.
@@ -113,6 +117,68 @@ $\xi_t(i,j) = \frac{P(q_t=S_i, q_{t+1}=S_j, O | \lambda)}{P(O|\lambda)}$
 
 $ = \frac{\alpha_t(i)a_{ij}b_j(O_t) \beta_{t+1}(j)}{P(O | \lambda)}$
 
-$ = $
+$ = \frac{\alpha_t(i)a_{ij}b_j(O_t) \beta_{t+1}(j)}{\sum_{i=1}^N\sum_{j=1}^N \alpha_t(i)a_{i,j}b_j(O_{t+1})\beta_{t+1}(j)}$
+
+Similarly define now $\gamma_t(i)$ as the probability of being in state $S_i$ at time $t$ given the model $\lambda$ and the observation sequence $O$. 
+$\gamma_t(i) = \frac{\alpha_t(i)\beta_t(i)}{P(O|\lambda)} = \frac{\alpha_t(i)\beta_t(i)}{\sum_{i=1}^N\alpha_t(i)\beta_t(i)}$
+
+This can be computed also from our just defined $\xi_t(i,j)$, by:
+$\gamma_t(i) = \sum_{j=1}^N \xi_t(i,j)$
+
+Now we can estimate the two following quantities:
+
+$\sum_{t=1}^T \gamma_t(i) = \text{The expected number of transitions from state} \ S_i \ \text{across all time steps}$
+
+
+$\sum_{t=1}^T \xi_t(i,j) = \text{The expected number of transitions from state} \ S_i \ \text{to state} S_j$
+
+Now with the above formulae and with the concept of counting event occurences, we can give the method for reestimation of the parameters of the model $\lambda$,
+
+$\overline{\pi} = \text{expected frequency (number of times) in state } S_i at time (t=1) = \gamma_1(i)$
+
+$\overline{a}_{i,j}=\frac{\text{The expected number of transitions from state} \ S_i \ \text{to state} S_j}{\text{The expected number of transitions from state} \ S_i}$
+
+$ = \frac{\sum_{t=1}^T \xi_t(i,j)}{\sum_{t=1}^T \gamma_t(i)}$
+
+$\overline{b}_j(k) = \frac{\text{expected number of times in state} \ j \ \text{and observing symbol} \ v_k}{\text{expected number of times in state} \ j}$
+
+$ = \frac{\sum_{t=1}^T  \gamma_t(i) \quad\quad \text{s.t.}  O_t=v_k}{\sum_{t=1}^T\gamma_t(i)}$
+
+
+Now these steps has to be applied iteratively until some stopping criterion, such as number of steps, or convergence saturation.
+Why the above reestimation techniques reaches/converges to local optimality (maximum) given in the littereature, and is out of the scope of these notes. The stochastic constraints, are satisfied in each iteration.
+
+The above tasks are renamed in the slides and are mentioned as the following <img src="..\attachments/hmm_tasks.png" width="400px" alt="slide 8">
+
+So now how can we solve these tasks from the slides with the acuqired knowledge?
+
+**Filtering**
+- makes use of the forward procedure as can be seen from slide:
+<img src="..\attachments/hmm_forward.png" width="400px">
+- alpha in the slides is the normalization constant so that is just $\sum_{\text{all states} \ \hat{X}} P(\hat{X}_{t+1} |O_{1:t+1})$
+- how to derive this formula is given by slide: 
+<img src="..\attachments/hmm_deriving_forward.png" width="400px">
+- from the notation of litterature that would be $P(q_{t+1} = S_i | O_1,\ldots,O_t, \lambda) = \alpha_i(t+1)$
+
+**Prediction**
+- Prediction formula can be done by see slide: 
+<img src="..\attachments/hmm_prediction.png" width="400px">
+- So we use same formula as for filtering, up to $t$ and then after we only consider the transition probabilities, but note we have to consider that each states could be reached at $t \leq i < k+1$ which is why the formula sums over $X_{t+k}$ denoting that it sums over all possible states
+
+
+**Smothning**
+- Is exactly using $\gamma_t(i)$ that is using both the forward and backward procedure, as we can see the proof for why this is on slide:
+<img src="..\attachments/hmm_forward_backward.png" width="400px">
+- from slide they describe forward procedure as: (is already given above when discuss filtering)
+- backward procedure as: <img src="..\attachments/hmm_backward.png" width="400px">
+
+**Most Likely Explanation**
+- To compute the most likely sequence of states, we use as disccussed the viterbi algorithm above, solution to Problem 2.
+
+**HMM Parameter Estimation**
+- Again this is similar to the explanation given above from the litterature syntax, this just give other notation if prefer.
+We can see that this follows from the following two slides:
+<img src="..\attachments/hmm_parameter_est.png" width="400px">
+<img src="..\attachments/hmm_parameter_est2.png" width="400px">
 
 
