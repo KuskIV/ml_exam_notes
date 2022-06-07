@@ -129,3 +129,12 @@ Here we can use skip connections to remediate this issue.
 <img src="..\attachments\gnn_skip_connection.png" width="500px">
 
 **Use case overview**
+In the following we will discuss how to extend the GCN to address the tasks of node classification, link prediction, and graph classification.
+
+Node classification we have discuss above, see slide above.
+
+Graph classificatino see slide here:
+<img src="..\attachments\gcn_arch_graph_class.png" width="500px">
+
+Link prediction see slide here:
+<img src="..\attachments\gcn_arch_link_prediction.png" width="500px">
