@@ -36,7 +36,7 @@ Definition: A bayesian network consists of the following:
 
 Bayesian networks use Bayesian inference for probability computations. They model conditional dependence and therefore causation by representing conditional dependence by edges in a directed graph.
 
-![](@attachment/bayesianex.png)
+![](../attachments/bayesianex.png)
 
 With given probabilities for each variable i.e. P(A) = (.92, .08)
 
@@ -69,13 +69,13 @@ Marginal likelihood: identify probability of incomplete sample $Y_i$ with margin
 Can be used if data are missing at random instead of standard likelihood.
 
 ### Expectation-Maximization (EM) algorithm:
-General algorithm for finding maximum likeihood estimates for a set of parameters $\theta$ when the data are incomplete.
+General algorithm for finding maximum likelihood estimates for a set of parameters $\theta$ when the data are incomplete.
 - Use hypothetical completions of data sets obtained from current estimate for $\theta$.
 - Apply maximum likelihood inference to completed data to obtain new estimate for $\theta$.
 
 Example:
 
-![](@attachment/EMexam.png)
+![](../attachments/EMexam.png)
 
 In the case of a complete dataset, to find the distribution of P(Pr = yes) we would use the following:
 $P(Pr = yes) = \frac{N(Pr = yes)}{N}$
