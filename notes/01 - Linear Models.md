@@ -83,7 +83,7 @@ $$r =\frac{y(X)}{\left \| W \right \|}$$
 
 ## Multiple classes
 When expanding the the discriminant function to multiple classes, the decision surface is a hyperplane. A The naive approach will work but comes with some difficulties. This can be on the following figure:
-![](@attachment/stufflin.png)
+![](../attachments/stufflin.png)
 
 The figure on the left hand is *One against all*
 The figure on the right hand is *One against one*
@@ -99,14 +99,14 @@ $$y_k(X) = y_j(X)$$
 Hence the corresponding hyperplane is:
 $$(W_k-W_j)^TX+(w_{k0}-{w_{j0}})=0$$
 
-![](@attachment/stuffmul.png)
+![](../attachments/stuffmul.png)
 
 ## Least squares for classification
 The sum of square error is the error function, that tries to minimize the classification error.
 The least square error has some problems, if the data set contains some outliers.
 This can be seen in the figure below:
 
-![](@attachment/stufflsq.png)
+![](../attachments/stufflsq.png)
 The purple line is the least square error
 
 ## keywords

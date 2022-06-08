@@ -45,7 +45,7 @@ A crucial parameter is the learning rate. This can be fixed, but it is better to
 
 A simple implementation can be seen below.
 
-![](@attachment/Clipboard_2022-06-04-14-48-11.png)
+![](../attachments/Clipboard_2022-06-04-14-48-11.png)
 
 An important attribute of the algorithm, when using minibatches, is that the computation time per update does not grow with the number of training exampels. This allows convergence even when the number of training exampels becomes very large.
 
@@ -71,7 +71,7 @@ The method of momentum is designed to accelerate learning, specially in the face
 
 This is achieved by introducing a variable $v$ representing the direction and speed at which the parameters move through parameter space and is set to an exponentionally decaying average of the negative gradient.
 
-![](@attachment/Clipboard_2022-06-05-09-27-45.png)
+![](../attachments/Clipboard_2022-06-05-09-27-45.png)
 
 Previoulsy the size of the stp was the norm of the gradient multiplied by the learning rage. Now it depends on how large and how aligned a sequence of gradients are. The step size is largest when many successive gradients points are in exactly the same direction.
 
