@@ -1,7 +1,7 @@
 ---
 title: 01 - Linear Models
 created: '2022-06-02T07:46:32.019Z'
-modified: '2022-06-07T08:55:54.094Z'
+modified: '2022-06-10T07:13:24.896Z'
 ---
 
 # 01 - Linear Models
@@ -20,13 +20,21 @@ For classification problem where $K>2$, something called a 1-of-K coding scheme 
 
 A linear model that assumes a linear relationship between the input variable and the output variable. When training, a linear equation is fittet to the observed data, where the loss is lowest, for example least square error. This, calculated the best-fitting line by minimizing the sum of squares of the vertical deviations from each point to the line. The optimal score is 0, and it is squared to cancel out between positive and negative values.
 
+## Logistic Regression
+
+Logistic is used when the target variable is categorical, like whether an email is spam or not. The idea is to find a relationship between featuers and probabilities of particular outcomes. The output will be a number between 0 and 1 using sigmoid. It is calculated as:
+
+$$y = \frac{1}{1+e^{-w_0+w_1x}}$$
+
+where $1/(1+e^{-z})$ is the sigmoid function and $w_0+w_1x$ is the linear model within logistic regression. The point is to find a decision boundry, which is the threshold used to categorize the datapoints. When training, we find the best weights for the linear model within logistic regression. This is done based on a cost function (LogLoss) where we minimize the function which is optimized using gradient descent.
+
 ## K-Nearest Neighbors
 
 Supervised ML algorithm used for classification and regression problems. It assumes similar things exists in close proximity.
 
 Consideratins when choosing k:
 - As K is decreased, predictions become less stable. A low k can also lead to overfitting
-- As K is increased, predictions becomes more stable due to majority voting/averaging. I can however become too large.
+- As K is increased, predictions becomes more stable due to majority voting/averaging. I can however become too large and lead to underfitting.
 
 Using the euclidian distance, we consider the k nearest neightbors, and the a point will be the same class as the majority of those. To avoid tiebreaks, avoid even k values.
 
