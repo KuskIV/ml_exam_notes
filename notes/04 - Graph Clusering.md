@@ -15,7 +15,7 @@ Informally, a community in a network is a group of nodes with greater ties inter
 
 The actors in a network tend to form groups of closely-knit connections. The groups are aslo called communities, clusters, cohesive subgroups or modues in different context. Rougly speaking, individuals interactin more frequently within a group that between groups.
 
-![](@attachment/Clipboard_2022-06-03-13-15-57.png)
+![](../attachments/Clipboard_2022-06-03-13-15-57.png)
 
 ## Graph Clustering
 

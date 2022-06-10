@@ -18,7 +18,7 @@ For classification problem where $K>2$, something called a 1-of-K coding scheme 
 
 ## Linear Regression
 
-A linear model that assumes a linear relationship between the input variable and the output variable. When training, a linear equation is fittet to the observed data, where the loss is lowest, for example least square error. This, calculated the best-fitting line by minimizing the sum of squares of the vertical deviations from each point to the line. The optimal score is 0, and it is squared to cancel out between positive and negative values.
+A linear model that assumes a linear relationship between the input variable and the output variable. When training, a linear equation is fitted to the observed data, where the loss is lowest, for example least square error. This, calculated the best-fitting line by minimizing the sum of squares of the vertical deviations from each point to the line. The optimal score is 0, and it is squared to cancel out between positive and negative values.
 
 ## Logistic Regression
 
@@ -32,11 +32,11 @@ where $1/(1+e^{-z})$ is the sigmoid function and $w_0+w_1x$ is the linear model 
 
 Supervised ML algorithm used for classification and regression problems. It assumes similar things exists in close proximity.
 
-Consideratins when choosing k:
+Considerations when choosing k:
 - As K is decreased, predictions become less stable. A low k can also lead to overfitting
 - As K is increased, predictions becomes more stable due to majority voting/averaging. I can however become too large and lead to underfitting.
 
-Using the euclidian distance, we consider the k nearest neightbors, and the a point will be the same class as the majority of those. To avoid tiebreaks, avoid even k values.
+Using the euclidean distance, we consider the k nearest neighbors, and the a point will be the same class as the majority of those. To avoid tiebreaks, avoid even k values.
 
 ## Perceptron Algorithm
 
@@ -44,16 +44,16 @@ A binary classifier utilizing a simple neural network. It consists of a single n
 
 $$\text{activation} = \text{weights} * \text{inputs} + \text{bias}$$
 
-If the activation is aboce 0, the model wil output 1, else it will output 0.
+If the activation is above 0, the model wil output 1, else it will output 0.
 
-It is a linear classifier algorithm, meaning it learns a decision boundary that seperates two classes using a hyperplane in the feature space.
+It is a linear classifier algorithm, meaning it learns a decision boundary that separates two classes using a hyperplane in the feature space.
 
-It is trained using the stochastic gradient descent optimizatino algorith, and stops trainig when the error falls to a low leve, or no longer improves, or a maximum number of epochs are performed.
+It is trained using the stochastic gradient descent optimization algorithm, and stops training when the error falls to a low level, or no longer improves, or a maximum number of epochs are performed.
 
-This model is less powerfull than SVM and NN. It cannot leanr to classify XOR.
+This model is less powerful than SVM and NN. It cannot learn to classify XOR.
 
 ## Advantages with linear models
-They are unlikely to overfit (can still happen), easy to learn from dataand they are well understood.
+They are unlikely to overfit (can still happen), easy to learn from data and they are well understood.
 
 ## Discriminant functions
 A discriminant is a function that takes an input vector $x$ and assign's it to on of the $K$ classes. 
@@ -91,7 +91,7 @@ $$r =\frac{y(X)}{\left \| W \right \|}$$
 
 ## Multiple classes
 When expanding the the discriminant function to multiple classes, the decision surface is a hyperplane. A The naive approach will work but comes with some difficulties. This can be on the following figure:
-![](@attachment/stufflin.png)
+![](../attachments/stufflin.png)
 
 The figure on the left hand is *One against all*
 The figure on the right hand is *One against one*
@@ -102,19 +102,19 @@ But this still have the issues of ambiguity.
 
 To avoid these a single K discriminant function comprising K linear functions:
 $$y_k(X) = W_{k}^{T}X+w_{k0}$$
-and then assigning a point $x$ to class $C_k$ if $y_k(X) > y_j(x)$ for all $j\neq k$. The desicion coundary between the two classes $C_k$ and $C_j$ is then defined:
+and then assigning a point $x$ to class $C_k$ if $y_k(X) > y_j(x)$ for all $j\neq k$. The decision boundary between the two classes $C_k$ and $C_j$ is then defined:
 $$y_k(X) = y_j(X)$$
 Hence the corresponding hyperplane is:
 $$(W_k-W_j)^TX+(w_{k0}-{w_{j0}})=0$$
 
-![](@attachment/stuffmul.png)
+![](../attachments/stuffmul.png)
 
 ## Least squares for classification
 The sum of square error is the error function, that tries to minimize the classification error.
 The least square error has some problems, if the data set contains some outliers.
 This can be seen in the figure below:
 
-![](@attachment/stufflsq.png)
+![](../attachments/stufflsq.png)
 The purple line is the least square error
 
 ## keywords

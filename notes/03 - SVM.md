@@ -28,7 +28,7 @@ The objective of the SVM is to find a hyperplane in an N-dimensional space (N is
 
 We want to find the widest road between different samples, and this is done by considering the dot products of suppot vectors and the samples.
 
-![](@attachment/Clipboard_2022-02-14-10-34-57.png)
+![](../attachments/Clipboard_2022-02-14-10-34-57.png)
 
 To seperate two classes of data points, there are many possible hyperplanes. The objective is the find a plane that has the maximum margin, i.e the maximum distance between datapoints of both classes.
 
@@ -40,7 +40,7 @@ Support vectors are datapoints closer to the hyperplane and influence the positi
 
 The margin is the distance between the decision oundary and the closest of the datapoints. Maximizing the margin leads to a particular choice of decision boundry. The location of the boundry is determined by a subset of the datapoints known as support vectors, indicated by the cickles on the right.
 
-![](@attachment/Clipboard_2022-02-14-10-57-20.png)
+![](../attachments/Clipboard_2022-02-14-10-57-20.png)
 
 In SVM, we take the output of the linear function and if the output is greater than 1 we identify with one class and if the output is -1 we identify as another class.
 
