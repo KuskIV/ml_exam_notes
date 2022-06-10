@@ -1,7 +1,7 @@
 ---
 title: 09 - Probabilistic Graphical Models
 created: '2022-06-02T07:49:26.203Z'
-modified: '2022-06-07T07:42:21.673Z'
+modified: '2022-06-10T10:10:32.871Z'
 ---
 
 # 09 - Probabilistic Graphical Models
@@ -18,9 +18,9 @@ Formally we characterize a HMM as a 5-tuple of the form $(S, V, A, B, \pi)$ wher
 
 > - $S = \{s_1, ..., s_N\}$ is the set of **states**
 > - $V = \{v_1, ..., v_M\}$ is the set of possible **observations** in the states (sensor measurements in TD lingo)
-> - $A$ is the **transition matrix**, which is a NxN matrix, where N is the number of states, and  $a_{ij} = P(q_{t+1} = S_i | q_t = S_j)$ is the probability of transitioning from state i at the time t to state j at the time t+1, if one can not transtion from one state to another of course then $a_{ij} = 0$
-> - $B$ is the **observation symbol probability distribution** in state j, it is given by $B = \{b_j(k)\}$, where $b_j(k) = P(V_k at t | q_t = S_j)$ that is it denotes the probabilitiy of observing the symmbol $V_k$ at time $t$ in state $S_j$
-> - $\pi$ is the **initial state distribution**, it is given by $\pi = \{\pi\}$, where $\pi_i = P(q_1 = S_i)$ that is it denotes the probabilitiy of starting in state $S_i$
+> - $A$ (prior model) is the **transition matrix**, which is a NxN matrix, where N is the number of states, and  $a_{ij} = P(q_{t+1} = S_i | q_t = S_j)$ is the probability of transitioning from state i at the time t to state j at the time t+1, if one can not transtion from one state to another of course then $a_{ij} = 0$
+> - $B$ (sensor model) is the **observation symbol probability distribution** in state j, it is given by $B = \{b_j(k)\}$, where $b_j(k) = P(V_k at t | q_t = S_j)$ that is it denotes the probabilitiy of observing the symmbol $V_k$ at time $t$ in state $S_j$
+> - $\pi$ (trans model) is the **initial state distribution**, it is given by $\pi = \{\pi\}$, where $\pi_i = P(q_1 = S_i)$ that is it denotes the probabilitiy of starting in state $S_i$
 
 Now what can we use such a HMM to? 
 

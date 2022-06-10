@@ -1,10 +1,14 @@
 ---
 title: 10 - Probabilistic Models
 created: '2022-06-02T07:50:14.551Z'
-modified: '2022-06-07T07:39:10.332Z'
+modified: '2022-06-10T12:51:13.284Z'
 ---
 
 # 10 - Probabilistic Models
+
+## Probabilistic Programming
+
+It is a tool for statistical modeling using the tools of computer science.
 
 ## Latent Variable Models
 
@@ -52,5 +56,7 @@ From this, two benefits can be observed:
 - **Posterior**: The results of performing Bayesian linear regression is a distribution of possible model parameters based on the data and the prior. This allows us to quantify our uncertainty about the model, if we have few data points, the posterior distribution will be spead out.
 
 The formulation of model parameters as distributions encapsulates the Bayesian wordview: we start out with an initial esstimate, our prior, and as we gather more evidence, our model becomes less wrong.
+
+The advantage is that we can model the uncertainty.
 
 
