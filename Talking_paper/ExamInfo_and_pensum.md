@@ -9,7 +9,7 @@ The exam will be held as an oral exam conducted in English. The input material f
 
 At the exam, you randomly pick 2 topics, one each from Manfred's and Thomas's part.  For each topic you first have approx. 4 minutes to give a short presentation based on your notes and/or self study notebooks. The only material that should be shown on the computer are self study notebooks. Do not prepare extra slides for your presentations. If you do not want to base your presentation on self study material, you can use the whiteboard to support your presentation with a little example.
 
-The presentation is followed by a question and answer period of another 4 minutes. For both your presentation and the question and anser part it is important that underlying models and learning techniques are described in a technically precise manner, and that you can relate the practical experimentation performed in the self studies with scikit-learn and Pytorch to the general theory presented in the lectures. Random example: you should be able to explain the meaning of the parameter setting “activation='logistic',solver='lbfgs'” for neural networks in scikit-learn.
+The presentation is followed by a question and answer period of another 4 minutes. For both your presentation and the question and answer part it is important that underlying models and learning techniques are described in a technically precise manner, and that you can relate the practical experimentation performed in the self studies with scikit-learn and Pytorch to the general theory presented in the lectures. Random example: you should be able to explain the meaning of the parameter setting “activation='logistic',solver='lbfgs'” for neural networks in scikit-learn.
 
 The following is the list of topics, together with a few keywords outlining the scope of each topic:
 
@@ -22,18 +22,21 @@ Overfitting
 Least squares regression (corresponding to sklearn LinearRegression in self study 1)
 Linear discriminant analysis
 Logistic Regression
+
 2. Support Vector Machines
 
 Maximum margin hypeplanes
 Feature transformations and kernel functions
 The kernel trick
 String kernels
+
 3. Graph data: community detection
 
 What are communities
 Newman Girvan algorithm
 Modularity
 Node clustering with probabilistic mixture model
+
 4. Graph data: node classification
 
 Inductive and transductive classification
@@ -41,6 +44,7 @@ Homophily
 Independent classification
 Label propagation
 Node classification with Markov networks
+
 5. Graph data: node embeddings and graph neural networks
 
 Node embeddings: shallow and functional
@@ -71,7 +75,9 @@ Thomas’s topics:
 - Inference in probabilistic graphical models
 - Maximum likelihood learning
 - The EM algorithm 
-4. Probabilistic graphical models and structured domains
+
+
+1. Probabilistic graphical models and structured domains
 
 -  Probabilistic models (syntax and semantics)
 -  Temporal models (Hidden Markov models)
@@ -85,4 +91,4 @@ Thomas’s topics:
 -   Probabilistic models and plate notation
 -   Variational inference basics (objective function, Evidence lower bound, mean field assumption)   
 -   Black-box variational inference
--   Variational inference and probabilistic programmin-
+-   Variational inference and probabilistic programming
