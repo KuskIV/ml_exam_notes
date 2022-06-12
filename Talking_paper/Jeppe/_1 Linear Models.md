@@ -1,0 +1,5 @@
+- Decision Regions
+- Overfitting
+- Least squares regression (corresponding to sklearn LinearRegression in self study 1)
+- Linear discriminant analysis
+- Logistic Regression

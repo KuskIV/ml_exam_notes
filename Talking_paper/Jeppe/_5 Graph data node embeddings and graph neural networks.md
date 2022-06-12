@@ -1,0 +1,4 @@
+- Node embeddings: shallow and functional
+- Message passing updates
+- Elements of GNN architectures (Skip connections, attention)
+- GNNs for node classification, graph classification and link prediction

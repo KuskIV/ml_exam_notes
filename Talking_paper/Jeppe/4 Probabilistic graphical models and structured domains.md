@@ -1,0 +1,5 @@
+-  Probabilistic models (syntax and semantics)
+-  Temporal models (Hidden Markov models)
+-  Plate notation
+-  Learning in structured models
+-  Bayesian learning

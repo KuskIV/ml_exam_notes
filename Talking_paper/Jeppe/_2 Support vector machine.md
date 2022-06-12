@@ -1,0 +1,4 @@
+- Maximum margin hypeplanes
+- Feature transformations and kernel functions
+- The kernel trick
+- String kernels
