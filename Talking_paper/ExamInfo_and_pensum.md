@@ -17,40 +17,40 @@ Manfred’s topics:
 
 1. Linear Models
 
-Decision Regions
-Overfitting
-Least squares regression (corresponding to sklearn LinearRegression in self study 1)
-Linear discriminant analysis
-Logistic Regression
+- Decision Regions
+- Overfitting
+- Least squares regression (corresponding to sklearn LinearRegression in self study 1)
+- Linear discriminant analysis
+- Logistic Regression
 
 2. Support Vector Machines
 
-Maximum margin hypeplanes
-Feature transformations and kernel functions
-The kernel trick
-String kernels
+- Maximum margin hypeplanes
+- Feature transformations and kernel functions
+- The kernel trick
+- String kernels
 
 3. Graph data: community detection
 
-What are communities
-Newman Girvan algorithm
-Modularity
-Node clustering with probabilistic mixture model
+- What are communities
+- Newman Girvan algorithm
+- Modularity
+- Node clustering with probabilistic mixture model
 
 4. Graph data: node classification
 
-Inductive and transductive classification
-Homophily
-Independent classification
-Label propagation
-Node classification with Markov networks
+- Inductive and transductive classification
+- Homophily
+- Independent classification
+- Label propagation
+- Node classification with Markov networks
 
 5. Graph data: node embeddings and graph neural networks
 
-Node embeddings: shallow and functional
-Message passing updates
-Elements of GNN architectures (Skip connections, attention)
-GNNs for node classification, graph classification and link prediction
+- Node embeddings: shallow and functional
+- Message passing updates
+- Elements of GNN architectures (Skip connections, attention)
+- GNNs for node classification, graph classification and link prediction
 
 Thomas’s topics:
 
