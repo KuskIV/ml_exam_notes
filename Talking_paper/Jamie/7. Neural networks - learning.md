@@ -1,0 +1,3 @@
+- The basis for learning neural networks (loss functions and gradient decent)
+- Learning and back propagation (computational graphs, the chain rule)
+- Learning in practice (stochastic gradient descent, momentum, regularisation)

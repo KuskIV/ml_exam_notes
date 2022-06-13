@@ -1,0 +1,4 @@
+- What are communities
+- Newman Girvan algorithm
+- Modularity
+- Node clustering with probabilistic mixture model
