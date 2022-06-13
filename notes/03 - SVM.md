@@ -21,25 +21,25 @@ Any mapping
 
 $$\phi:\mathbb{R}^D\rightarrow\mathbb{R}^{D'}$$
 
-defines how some original data x is turned into a transformend data instance $\phi(x)=(\phi_1(x), \dots, \phi_D(x))$, where the components $\phi_i(x)$ are called features or basis functions and the $\mathbb{R}^{D'}$ is the feature space of $\phi$. $D'$ is often greater than $D$ and $\phi$ is typically non-linear. The idea is that we want to make to non-linear data into some data we can apply linear models to.
+defines how some original data x is turned into a transformed data instance $\phi(x)=(\phi_1(x), \dots, \phi_D(x))$, where the components $\phi_i(x)$ are called features or basis functions and the $\mathbb{R}^{D'}$ is the feature space of $\phi$. $D'$ is often greater than $D$ and $\phi$ is typically non-linear. The idea is that we want to make to non-linear data into some data we can apply linear models to.
 
 ## Support Vector Machine (SVM)
 
 The objective of the SVM is to find a hyperplane in an N-dimensional space (N is the number of features) that distinctly classifies the datapoints.
 
-We want to find the widest road between different samples, and this is done by considering the dot products of suppot vectors and the samples.
+We want to find the widest road between different samples, and this is done by considering the dot products of support vectors and the samples.
 
 ![](../attachments/Clipboard_2022-02-14-10-34-57.png)
 
-To seperate two classes of data points, there are many possible hyperplanes. The objective is the find a plane that has the maximum margin, i.e the maximum distance between datapoints of both classes.
+To separate two classes of data points, there are many possible hyperplanes. The objective is the find a plane that has the maximum margin, i.e the maximum distance between datapoints of both classes.
 
-Hyperplanes are dicision boundaries that help classify the datapoints. Datpoints falling on either side of the hyperplane can be attributed to different classes.
+Hyperplanes are decision boundaries that help classify the datapoints. Datapoints falling on either side of the hyperplane can be attributed to different classes.
 
-The dimensionality of the hyperplane depends on the number ofeatures, if the input feature is 2, then the hyperplane is just a line. If the number of features is 3, then the hyperpalne becomes a two-dimensional plane.
+The dimensionality of the hyperplane depends on the number of features, if the input feature is 2, then the hyperplane is just a line. If the number of features is 3, then the hyperplane becomes a two-dimensional plane.
 
 Support vectors are datapoints closer to the hyperplane and influence the position and orientation of the hyperplane. Using these support vectors, we maximize the margin of the classifier. Deleting the support vectors will change the position of the hyperplane.
 
-The margin is the distance between the decision oundary and the closest of the datapoints. Maximizing the margin leads to a particular choice of decision boundry. The location of the boundry is determined by a subset of the datapoints known as support vectors, indicated by the cickles on the right.
+The margin is the distance between the decision oundary and the closest of the datapoints. Maximizing the margin leads to a particular choice of decision boundary. The location of the boundary is determined by a subset of the datapoints known as support vectors, indicated by the cickles on the right.
 
 ![](../attachments/Clipboard_2022-02-14-10-57-20.png)
 
@@ -47,17 +47,17 @@ In SVM, we take the output of the linear function and if the output is greater t
 
 ### Overlapping Class Distribution
 
-The idea of a training dataset without overlap is unrealistic. We therefore need to modify the SVM to allow some training poitns to be misclassified. The penalty is a linear function of the distance and in order to do this, a slack variable greater or equal to 0 is introduced. Each datapoint has a slackvariable, where:
+The idea of a training dataset without overlap is unrealistic. We therefore need to modify the SVM to allow some training points to be misclassified. The penalty is a linear function of the distance and in order to do this, a slack variable greater or equal to 0 is introduced. Each datapoint has a slackvariable, where:
 
-- $S=0$ means it is insdie the correct margin boundry
-- $0<S\leq1$ means it is inside the margin, but on the correct side of the decision boundry.
-- $S>1$ means it is on the wrong side of the decision boundry and is misclassified.
+- $S=0$ means it is inside the correct margin boundary
+- $0<S\leq1$ means it is inside the margin, but on the correct side of the decision boundary.
+- $S>1$ means it is on the wrong side of the decision boundary and is misclassified.
 
 In the slides, this was mentioned as a simplification, but it was: The idea was that we want to calibrate $w,b$ so that for support vectors $x_n$:
 $$y_n(w*x_n+b)=1$$
 meaning, we want to multiply the margin with some value so it equals one (normalize the values). This is how we can always compare with 0, 1 and greater than 1.
 
-The goal is to maximize the margin while softly penalizing points that lie on the wrong side of the maring boundry. We maximize:
+The goal is to maximize the margin while softly penalizing points that lie on the wrong side of the margin boundary. We maximize:
 
 $$C\sum_{n=1}^{N}S_n+\frac{1}{2}\left \| w \right \|^2$$
 
@@ -71,15 +71,15 @@ The cost is 0 if the predicted and actual value is the same. Else the cost will 
 
 ## Nonlinear SVM
 
-When features are not linearly seperable, one way to solve this is by adding/removing dimensinos (usually adding), and mapping datapoints to this new space using a kernel fuction. This new high-dimensioal features space makes in possible to make it a linear classification problem again.
+When features are not linearly separable, one way to solve this is by adding/removing dimensions (usually adding), and mapping datapoints to this new space using a kernel function. This new high-dimensional features space makes in possible to make it a linear classification problem again.
 
 ## Lagrange Multipliers
 
 The SVM learning problem is solved using the method of Lagrange multipliers.
 
-The point of the Lagrange optimization process is to determine the support vector $x_i$, the $\lambda_i$ and the $b$. The only operations required on data itesm is to compute dot products $x_i * x_j$. For classification we only need to compute dot products $x_i*z$
+The point of the Lagrange optimization process is to determine the support vector $x_i$, the $\lambda_i$ and the $b$. The only operations required on data items is to compute dot products $x_i * x_j$. For classification we only need to compute dot products $x_i*z$
 
-The method of Lagrange Multipliers is a simple and elegang method for finding the local minima or local maxima of a function subject to equality of inequality constraints.
+The method of Lagrange Multipliers is a simple and elegant method for finding the local minima or local maxima of a function subject to equality of inequality constraints.
 
 The method of Lagrange multipliers first constructs a function called the Lagrange function as given by the following expression:
 
@@ -127,11 +127,11 @@ For some feature mapping $\phi$, if and only if for all finite sets of points $x
 
 ### The Kernel Trick
 
-When it is not possible to seperate data in a low dimensionalirty, additional dimensions are added. This enables us to seperate the data linearly, but when operations are performed with higher dimensions, this can lead to extremely high and inpractical computation costs, especially if many dimensions are added.
+When it is not possible to separate data in a low dimensionality, additional dimensions are added. This enables us to separate the data linearly, but when operations are performed with higher dimensions, this can lead to extremely high and impractical computation costs, especially if many dimensions are added.
 
 This is what the kernel trick solves. The tick is that kernel methods represents the data only through a set of pairwise similarity comparisons between the original data in the low dimensionality, instead of applying the transformation, and representing the data in a higher dimensional feature space.
 
-The benifit is that the objective function we are optimizing to fit the higher dimensional decision boundry only includes the dot product of the transformed vectors. Therefore we can just substitue these dot product terms with the kernel function without using $\phi(x)$, meaning we find the optimal hyperplane using the hither dimensional space, without having to calculate or in reality eve know anything about $\phi(x)$.
+The benefit is that the objective function we are optimizing to fit the higher dimensional decision boundary only includes the dot product of the transformed vectors. Therefore we can just substitute these dot product terms with the kernel function without using $\phi(x)$, meaning we find the optimal hyperplane using the hither dimensional space, without having to calculate or in reality eve know anything about $\phi(x)$.
 
 
 
@@ -155,7 +155,7 @@ When the data is non standard, kernels can still be used to classify.
 
 For text
 
-A term frequency vectore, is a vector where each index represents how many times the index occurs. This could be based on a text, where the vector will be words, and each index will be how many times a given word occurs in a text.
+A term frequency vector, is a vector where each index represents how many times the index occurs. This could be based on a text, where the vector will be words, and each index will be how many times a given word occurs in a text.
 
 ## Cosine Similarity
 
@@ -170,9 +170,9 @@ cos-sim is a positive semi-definite kernel: normalization of plain dot product. 
 SVM + Kernel Functions:
 
 Advantages:
-- Powerfull method for classifiaction
-- Successfull applications, e.g. in bio-informatics
-- Wide variety of data tyypes and classification problems reduced to a single tyype of optimization problem
+- Powerfull method for classification
+- Successful applications, e.g. in bio-informatics
+- Wide variety of data types and classification problems reduced to a single tyype of optimization problem
 
 Disadvantages
 - Binary classifier only: generalization to multiclass only via multipe binary classifiers
