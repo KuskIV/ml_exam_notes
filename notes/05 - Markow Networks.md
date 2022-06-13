@@ -44,11 +44,22 @@ __Node features construction:__
 - $X(v) = PageRank(v)$
 
 ## Label propagation
-Label Propagation Algorithm (LPA) is an iterative algorithm where we assign labels to unlabelled points by propagating labels through the dataset.
+Label Propagation Algorithm (LPA) semi-supervised is an iterative algorithm where we assign labels to unlabelled points by propagating labels through the dataset.
 __Characteristics__
 - No node features
 - Transduction classification exploiting homophily
 - For unlabeled nodes compute probability distribution over class labels
+
+Within community networks, the label propagation algorithm aims the change the label of each node based on the communities label. The biggest advantage for label propagation is it excellent runtime. 
+
+__Principles of label propagation__
+1. Each of the distinct nodes has it's corresponding label
+2. The corresponding label of each node denotes the distinct community that this node belongs to
+3. Through iteration within the network, each node will update its belongingness community based on belongingness community of neighbor nodes until all of the nodes with the same label are attributed to same communities.
+4. The updated community of each node will be the corresponding belongingness community of the maximum number of nodes
+5. Eventually, densely connected nodes reach a common label community
+
+How is this actually performed?
 
 ## Markov Networks
 Markov Networks are a generalization of the Markov chain.
