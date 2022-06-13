@@ -12,7 +12,8 @@ This lecture continued and finished the topic of support vector machines. The ma
 
 __Hyperplane__: The dividing line in placed to separate the data
 __Support Vector__: Samples on the edge of the boundary and are the most difficult to classify.
-**Margin**: The distance seperating the closest pair of data point belonging to opposit classes
+**Margin**: The distance separating the closest pair of data point belonging to opposite classes
+**Feature space**: the space in which the data is represented after the transformation of the data
 
 ## Data Transformations
 
