@@ -21,7 +21,7 @@ Any mapping
 
 $$\phi:\mathbb{R}^D\rightarrow\mathbb{R}^{D'}$$
 
-defines how some original data x is turned into a transformend data instance $\phi(x)=(\phi_1(x), \dots, \phi_D(x))$, where the components $\phi_i(x)$ are called features or basis functions and the $\mathbb{R}^{D'}$ is hte feature space of $\phi$. $D'$ is often greater than $D$ and $\phi$ is typically non-linear. The idea is that we want to make to non-linear data into some data we can apply linear models to.
+defines how some original data x is turned into a transformend data instance $\phi(x)=(\phi_1(x), \dots, \phi_D(x))$, where the components $\phi_i(x)$ are called features or basis functions and the $\mathbb{R}^{D'}$ is the feature space of $\phi$. $D'$ is often greater than $D$ and $\phi$ is typically non-linear. The idea is that we want to make to non-linear data into some data we can apply linear models to.
 
 ## Support Vector Machine (SVM)
 
