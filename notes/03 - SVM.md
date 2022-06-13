@@ -39,7 +39,7 @@ The dimensionality of the hyperplane depends on the number of features, if the i
 
 Support vectors are datapoints closer to the hyperplane and influence the position and orientation of the hyperplane. Using these support vectors, we maximize the margin of the classifier. Deleting the support vectors will change the position of the hyperplane.
 
-The margin is the distance between the decision oundary and the closest of the datapoints. Maximizing the margin leads to a particular choice of decision boundary. The location of the boundary is determined by a subset of the datapoints known as support vectors, indicated by the cickles on the right.
+The margin is the distance between the decision boundary and the closest of the datapoints. Maximizing the margin leads to a particular choice of decision boundary. The location of the boundary is determined by a subset of the datapoints known as support vectors, indicated by the circles on the right.
 
 ![](../attachments/Clipboard_2022-02-14-10-57-20.png)
 
@@ -161,7 +161,7 @@ A term frequency vector, is a vector where each index represents how many times 
 
 $$\text{cos-sim}(t_1, t_2)=cosine(0)=\frac{tf(t_1)\circ tf(t_2)}{\| tf(t_1) \ \circ \| tf(t_2) \|}$$
 
-cos-sim is a positive semi-definite kernel: normalization of plain dot product. com-sim is exstensively used in information retrival as a measure of similarity between documents
+cos-sim is a positive semi-definite kernel: normalization of plain dot product. com-sim is extensively used in information retrieval as a measure of similarity between documents
 - $t_1$: A short query text
 - $t_2$: A candidate document that may be returned for query $t_1$
 
