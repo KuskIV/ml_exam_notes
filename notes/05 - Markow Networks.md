@@ -59,7 +59,11 @@ __Principles of label propagation__
 4. The updated community of each node will be the corresponding belongingness community of the maximum number of nodes
 5. Eventually, densely connected nodes reach a common label community
 
-How is this actually performed?
+Label propagation works on the relatively simple assumption that closely connected nodes also have the same class aka label. The effect of this assumption is that it is possible to propagate the label to unlabeled nodes in the network.
+
+The algorithm works by performing a radom walk foreach of the unlabeled nodes. This is done to determine the probability distribution of reaching a node with a label.
+This is then done multiple times until the probabilities stop changing in the unlabled nodes. Unlabeled nodes are then assigned a label based on the probability distribution.
+
 
 ## Markov Networks
 Markov Networks are a generalization of the Markov chain.
