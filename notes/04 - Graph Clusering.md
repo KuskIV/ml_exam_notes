@@ -25,7 +25,7 @@ When performing network clustering, it is the task of extracting the natural com
 
 A cluster of $G=(V,E)$ is a partitioning of $C=\{ C_1, \dots, C_k \}$ of $V$
 
-### Method Skeleton
+### Method selection
 
 Pick a quality measure for clustering
 
@@ -49,7 +49,7 @@ The shortest path betweenness is however just one kind of betweenneess, and the 
 
 Lastly where a unit resistance is placed on each edge of the network and unit current source and sink at a particular pair of vertices. The resulting current flow in the network will travel from source to sink along a multitude of paths, those with least resistance carrying the greatest fraction of the current. the current-flow betweenness for and edge is defined to be the absolute value of the current along the edge summed over all source/sink paris.
 
-One thing to note is that the last two are probably outside the scope of this presentation, as only the first way was introduced in the lecute.
+One thing to note is that the last two are probably outside the scope of this presentation, as only the first way was introduced in the lecture.
 
 ## Newman, Girvan Algorithm
 
@@ -60,9 +60,9 @@ Attributes of the algorithm:
 - These are recalculated of the betweenness score after reach removal.
 
 It differs from other work as it does not remove edges between vertex pairs with the lowest similarity, but on finding edges with the highest betweenness, where betweenness is some measure that favors edges that lie between communities and disfavors those that lie inside communities. Betweenness is based on the idea tha if two communities are joined by only a few intercommunitiy edges, then all paths through the network from vertices in one community to vertices in the other must pass along on of those few edges. Given a suitable set of paths, one can count ho many go along each ege in the graph and this number we then expect to be largest for the intercommunity edges, thus providing a method for identifying them.
-Another way the method differs is in the inclusion of a recalculation step. If a standard divisive clustering was performed based on edge betweenness, the betweenness for all edges in the network and the n removed edges in decreasing order of betweenness. The issue here is that once the first edge is removed, the betweenness values for the remaining edges will no longer reflect the network as it is now. This can give rise to unwanted behaviors. If two communities are joined by two edges, but for whatever reason, most paths between the two flow along just one of those edged, then that edge will havea higher betweenness score and the other will not. AN algorithm that calculated betweennsses only once and then removed edges in the beteeenness order would remove the first edge early in the course of its operations, but the second might not get removed until much later. Thus the obvious division of the network ino two parts might not be discovered by the algorithm. In the worst case, the two parts themselves might be individually broken up before the division between the two is made. The solution is to recalculate the betweenness score after the removal of each edge. This adds computational effort into the system, but it is deemed worth the cost.
+Another way the method differs is in the inclusion of a recalculation step. If a standard divisive clustering was performed based on edge betweenness, the betweenness for all edges in the network and the n removed edges in decreasing order of betweenness. The issue here is that once the first edge is removed, the betweenness values for the remaining edges will no longer reflect the network as it is now. This can give rise to unwanted behaviors. If two communities are joined by two edges, but for whatever reason, most paths between the two flow along just one of those edged, then that edge will have a higher betweenness score and the other will not. AN algorithm that calculated betweennsses only once and then removed edges in the betweenness order would remove the first edge early in the course of its operations, but the second might not get removed until much later. Thus the obvious division of the network ino two parts might not be discovered by the algorithm. In the worst case, the two parts themselves might be individually broken up before the division between the two is made. The solution is to recalculate the betweenness score after the removal of each edge. This adds computational effort into the system, but it is deemed worth the cost.
 
-The general from of the algorithm mis as follows:
+The general form of the algorithm is as follows:
 1. Calculate betweenness scores for all edges in the network
 1. Find the edge with the highest score and remove it form the network. If two or more edges tie for the highest score, choose one of the mat random.
 1. Recalculate betweenness for all remaining edges
@@ -82,7 +82,7 @@ __NOTE__: Modularity cannot be optimized directly, as exact solution is NP hard
 
 ## Gaussian Mixture Models
 
-Clustering is an unsupervised learning problem where we intend to find clusters of points in our dataset wit similar characteristics. When considering clustering methods, they can be hard (like K-Means) where each point is only assigned to one cluster. There is not uncertainty measure or probability for other clusters the point could belong to. This is something Gaussian Mixture addresses, by representing clusters as Gaussian distributions. Another advantage is that it does not have a bias towards circular clusters, wo it works well even with non-linear data distributions.
+Clustering is an unsupervised learning problem where we intend to find clusters of points in our dataset with similar characteristics. When considering clustering methods, they can be hard (like K-Means) where each point is only assigned to one cluster. There is not uncertainty measure or probability for other clusters the point could belong to. This is something Gaussian Mixture addresses, by representing clusters as Gaussian distributions. Another advantage is that it does not have a bias towards circular clusters, so it works well even with non-linear data distributions.
 
 A Gaussian Mixture is a function comprised of several gaussian's, each identified by $k \in \{1, \dots, K\}$, where $K$ is the number of clusters.Each Gaussian $k$ in the mixture is comprised of the following parameters:
 
@@ -106,5 +106,6 @@ __step 2__ For each pair of nodes $v_1, v_j$, sample the value of a boolean edge
 
 The input is a graph with unlabeled nodes and target number of clusters $k$. The task is to determine model parameters and latent coordinates. Nodes are then clustered by applying the Gaussian Mixture Model to the points.
 
-
+# Modularity
+The Modularity Optimization algorithms tries to detect communities in the graph based on their modularity. Modularity is a measure of the structure of a graph, measuring the density of connections within a module or community. Graphs with a high modularity score will have many connections within a community but only few pointing outwards to other communities.
 
