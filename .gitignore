@@ -171,6 +171,7 @@ cython_debug/
 
 # Talking papers
 Talking_paper/Jamie/
+Talking_paper/Jamie/3. Graph data - community detection.md
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
