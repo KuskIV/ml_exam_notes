@@ -20,9 +20,9 @@ In this lecture the focus will be on the topic of node classification in network
 
 ## Inductive vs Transductive
 
-__Transductive__: The graph is fixed and the is the same when learning and predicting. All nodes needed to be lassified are already known when learning the classifier.
+__Transductive__: The graph is fixed and the is the same when learning and predicting. All nodes needed to be classified are already known when learning the classifier.
 
-__Inductive__: The graph used for training, can be differen. Nodes that are classified can be new nodes added to the graph, or even be nodes in a different graph.
+__Inductive__: The graph used for training, can be different. Nodes that are classified can be new nodes added to the graph, or even be nodes in a different graph.
 
 ## Homophily
 
@@ -104,3 +104,10 @@ Estimate probability $P_N(X=x)$
 2. **Burn in**: Perform t steps of Gibbs sampling, this is done to eliminate the influence of the initialization.
 3. Sample values $x^t+1, x^t+2, \cdots , x^{t+N}$
 4. Estimate: $P_N(X=x) \approx \frac{1}{N} | \{ i|X^{t+1}| X=x \}|$
+
+<!-- More wordy explanation:
+To start off we are selecting an initial value for $x$ which is above 0. This is done by randomly selecting a value from the set of possible values for $X$.
+
+The several steps of Gibbs sampling are performed to eliminate possible biases introduced by the random initializations.
+
+In the next step we sample new values for the variables -->
