@@ -1,2 +1,6 @@
 {
+    "cSpell.enableFiletypes": [
+        "mdx",
+        "md"
+    ]
 }
