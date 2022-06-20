@@ -27,6 +27,11 @@ In the self study we used bayesian linear regression.
 In doing this i will attempt to explain how it works and the process of doing it.
 
 In bayesian linear regression we try to find the best posterior distribution of the parameters of the model.
-In this cell we initialize the prior distributions.
+In this cell we initialize the prior distributions in the next cell we specify the variational distribution.
 
+Now we use these to actually learn the model.
+Firstly we generate some data for the model.
+then we initializes a instance of evidence lower bound.
+These are then used to initialize the model.
+now we simply take steps by using the generated data and prints some evaluation metrics out during learning.
 
