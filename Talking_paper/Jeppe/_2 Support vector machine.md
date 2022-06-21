@@ -21,21 +21,14 @@ When the data has been mapped and becomes linearly separable we can simply set t
 But actually calculating the convenient function to make the data linearly separable is a bit tricky and can be very computationally expensive, because the more features are involved the larger degree of polynomial function are required to separate the data the more expensive it becomes.
 This is where kernel functions and the kernel trick come in. The kernel functions that takes the feature in the original space and return the pairwise similarity of the features in the feature space and the original space. The kernel trick is essential that we can represent the data in the feature space, with the dot product so that we do not have to explicitly transforms all the data into the higher dimensional feature space. 
 
-There exist many different kinds of kernel function that are suited for different use cases and different kinds of data. 
-Some of these are even kernels that work on non-numerical data. One example of such a kernel is the string kernel.
-A string kernel could work by counting the frequently of the words used in the text.
-
 Now i will talk a bit about the self studies.
-For this self study we used the MNIST dataset, which consists 70000 28x28 images of handwritten digits from 0 to 7.
-To make the exercises simpler and faster we only use two classes, 9 and 3.
+For this self study we used the MNIST dataset, which consists 70000 28x28 images of handwritten digits from 0 to 9.
+To make the exercises simpler and faster we only use two classes, 7 and 3.
 For the first exercise we split the data up into training and test data.
 
 The we learn different support vector machines, where we vary the kernel function used.
 The kernel function are linear, polynomial, Gaussian function and sigmoid.
 From the experiment each of the kernel function perform similarly, but the best performing one is the polynomial kernel and rbf. The only differences between these two is the time, where rbf was marginally slower.
-
-We then plotted the misclassified instances. Next we plotted the confusion matrix for all the classes.
-Where we cans ee that it generally performs really well, but that some number have a tendency to look like each other.
 
 For the second exercise we manually made several different convocational kernels. I will now try to explain the idea behind the functions we made.
 The first one is simply a 3 by 3 matrix of ones.

@@ -4,6 +4,45 @@
 - Label propagation
 - Node classification with Markov networks
 
+## NEW
+Hi im going to be talking about node classification.
+
+Firstly i will be talking about the differences between transduction and inductive classification.
+The ideas and goal between the two are very different.
+In transductive classification we have all of the data both the training and the test data. We use this data to train the model and then we use the model to predict labels for the test data.
+
+In inductive classification we only have the training data. We use this data to train the model. When the model have been trained we use the model to predict labels of the never seen before test data.
+In a inductive classification we are essentially trying to create a more generic model. While the transductive classification is more specific and will only work for the specific data used in the training.
+
+Now i will introduce the concept of homophily.
+Homophily is when a link between individuals (such as friendship or other social connection) is correlated with those individuals being similar in nature. For example, friends often tend to be similar in characteristics like age, social background and education level. This is very often seen in real data, when closely linked individuals are similar in nature. This also the case when looking at communities in graphs the more densely connected a community the more similar they are.
+The suggestion here is that we can use the homophily to make certain predictions about the nodes that are closely linked with known node, we can essentially expect some of the attributes to be reflected in the nodes.
+
+Now i would like to talk a bit about label propagation, it is a transductive classification algorithm.
+Label propagation is a method of learning that is used to predict the labels of unlabeled nodes in a graph.
+The idea is that we can use the labels of the nodes in the graph to predict the labels of the unlabeled nodes.
+The algorithm works by starting with a set of labeled nodes and then iteratively adding the labels of the neighbors of the labeled nodes.
+Each unlabeled node is seen as a distribution over the labels, by randomly selecting a label from the distribution and doing it multiple time until probabilities stop changing.
+This is done until the labels of the unlabeled nodes are assigned with the most likely label.
+
+Now i will be talking a bit about gibbs sampling.
+Gibbs sampling is a method of learning that is used to predict the labels of unlabeled nodes in a graph.
+When performing gibbs sampling we randomly select a node unlabeled and then we randomly select a label for the node.
+Then we use the label to predict the labels of the neighbors of the node.
+This is done until the labels of the unlabeled nodes are assigned with the most likely label.
+
+Now i will talk a bit about the self study.
+For the self study we were using a graph representing a social network with 71 lawyers.
+We want to predict the label practice on some of the nodes so we remove it randomly from some of them.
+
+Now we want to predict the missing practice on the nodes, using gibbs sampling.
+We then implement gibbs sampling on the graph and predict the labels of the nodes.
+The accuracy of the prediction is 78%, though this can chang with additional runs because of the random nature of the algorithm.
+
+I the next task we performs gibbs sampling multiple times to see how the accuracy changes.
+The results show that accuracy can change a lot.
+
+## OLD
 Hi im going to be talking about graph node classification.
 
 Firstly im going to cover what is meant by:

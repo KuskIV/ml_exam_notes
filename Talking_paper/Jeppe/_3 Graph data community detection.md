@@ -7,14 +7,21 @@ Hi i am going to be talking about Graph data community detection.
 
 For this is will first be talking about what a community is.
 A community is in the context of graphs a part of the graph that is more closely tied together internally than they are with the rest of the graph. The communities are essentially part of the network that interacts more frequently with each other. These communities tend to be more connected than the rest of the network. The closer a community is connected the more similar the to each other the community is, this is called homophile.   
-Communities can have many different names and structure depending on the context. Sometimes called clusters, cohesive subgroups or modules. 
+<!-- Communities can have many different names and structure depending on the context. Sometimes called clusters, cohesive subgroups or modules. 
 The different types of communities are:
 - coherent subgroups, when we identify a single cluster.
 - Graph clustering, when we split the graph into disjoint clusters.
 - overlapping communities, when the communities overlap with each other.
-- fuzzy clustering, when there are different degrees of membership in the communities.
+- fuzzy clustering, when there are different degrees of membership in the communities. -->
 
-Next i will explain the Newman Girvan algorithm.
+Essentially there are two diffrent types of clustering methods.
+
+Hard clustering were each node is either in a community or not in the community.
+Soft clustering where there can be overlap between the communities.
+
+
+
+Next i will explain the Newman Girvan algorithm which is a hard clustering method.
 The Newman Girvan algorithm is a method for detecting communities in a graph.
 The Idea behind the algorithm is in essence very simple and be described in simple steps. 
 I is important to understand betweeness centrality, this is a measure of how often a node is connected to another node, and is central part of the algorithm.
@@ -29,9 +36,8 @@ To evaluate which of these communities are the most connected to each other we c
 Modularity is a measure of how well a community is connected to the rest of the graph.
 So using this we can find the most connected communities. A high modularity score will have many connections within the community, but only a few connections outside the community.
 
-The next thing i will be talking about is node clustering with probabilistic mixture model.
-probabilistic mixture model or gaussian mixture model is a method for clustering data, that uses proportional mixing of gaussian distributions.
-The identified clusters will also end up as gaussian distributions.
+The next thing i will be talking about is node clustering with probabilistic mixture model which is a soft clustering method.
+probabilistic mixture model or gaussian mixture model is a method for clustering data, that uses proportional mixing of gaussian distributions. When learning the parameters of the model, we want to maximize the log likelihood of the data being in the right distributions. What the trained model gives us is the probability that a data point is in a certain distribution. Because of tih sit is a soft clustering method, we can use the probability to determine which community a node belongs to.
 
 Now i will be talking about the self study.
 For the self study we were using a graph representing a social network with 71 lawyers. The dataset has three different kinds of relationships described, but we will only be focusing on the friendship relationship. 

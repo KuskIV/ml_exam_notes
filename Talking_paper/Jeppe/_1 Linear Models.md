@@ -8,15 +8,12 @@
 
 Hi im going to present a brief overview of linear models for classification and then talk a bit about the self study.
 
-Linear models are used to predict the class of a data point. This work very similarly to linear regression in terms of the learn process.
 The most commonly used linear classification model is Logistic Regression. Normally logistic regression is used in binary classification problems.
 An example of a non-linear classification model is k-nearest neighbors.
 
 Though Linear models are mostly suited for binary classification problem they can be used in multiple class classification problems. This does however involves some extra concepts. For a linear function to be able to classify multiple different there are generally two different approaches to this these are one against all classification and one against one classification.
 
 To do this involves something called a discriminant function which essentially is a function that defines the decision regions of the model. A decision region is a region in the space of the input space where the model is able to make a decision, these region each correspond to some class.
-
-Now i will spend a little time talking about overfitting. Essentially over fitting is a symptom of to much training on the same data, meaning that the learned model is highly specialized to classify only the data in the training set. Overfitting is somewhat easy to spot as it results in very good accuracies for the training set, but increasingly bad accuracies for the test set.
 
 I will now present the self study.
 For the self study the popular iris dataset is used. Initially we will only be using the 2 of the 4 features available in the dataset.
@@ -40,8 +37,6 @@ For the next exercise we tested the accuracies when making 70/30 split of the da
 
 For linear regression we can see that the accuracy is very low. From the confusion matrix we can see that the model has trouble with class blue and green classes, but alos with the red class.
 
-For the final exercise we will use all 4 features in the dataset.
-The results of this is slight improvements to the accuracy of the linear regression model and KNN.
 
 ## OLD
 4 min presentation
