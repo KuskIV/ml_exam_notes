@@ -34,4 +34,27 @@ Firstly we generate some data for the model.
 then we initializes a instance of evidence lower bound.
 These are then used to initialize the model.
 now we simply take steps by using the generated data and prints some evaluation metrics out during learning.
+When the training is done we plot the result. Where we have the original data and the learned distribution.
 
+In the experiment we did the learning again but this time making subtle changes to the parameters used to observe the effect.
+For the first set of experiments we changed the number of samples in the data and the precision of the sensor.
+
+More samples seems to generally benefit the model. 
+A low sensor quality resulted in a higher error in the model. But doubling the sensor quality did not double the the performance of the model.
+Thus there is a non-linear relationship between the performance and the sensor quality.
+
+For the next experiment we tried to change the learning rate and the confidence in the prior.
+Learning rate seems to not really effect the result much in this case.
+
+Moving the prior away from the true model also seemed to have little effect on the model.
+
+finally increasing the confidence in the wrong guide seems to have a little effect on the model.
+
+for the final experiment we tried to change confidence in the prior and change the prior distribution.
+
+Increasing confidence in prior seems to be detrimental to the model,
+but changing the prior distribution seems to have little actual effect.
+
+
+
+https://towardsdatascience.com/introduction-to-bayesian-linear-regression-e66e60791ea7
