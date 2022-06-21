@@ -4,8 +4,47 @@
 - Linear discriminant analysis
 - Logistic Regression
 
-4 min presentation
+## NEW
 
+Hi im going to present a brief overview of linear models for classification and then talk a bit about the self study.
+
+Linear models are used to predict the class of a data point. This work very similarly to linear regression in terms of the learn process.
+The most commonly used linear classification model is Logistic Regression. Normally logistic regression is used in binary classification problems.
+An example of a non-linear classification model is k-nearest neighbors.
+
+Though Linear models are mostly suited for binary classification problem they can be used in multiple class classification problems. This does however involves some extra concepts. For a linear function to be able to classify multiple different there are generally two different approaches to this these are one against all classification and one against one classification.
+
+To do this involves something called a discriminant function which essentially is a function that defines the decision regions of the model. A decision region is a region in the space of the input space where the model is able to make a decision, these region each correspond to some class.
+
+Now i will spend a little time talking about overfitting. Essentially over fitting is a symptom of to much training on the same data, meaning that the learned model is highly specialized to classify only the data in the training set. Overfitting is somewhat easy to spot as it results in very good accuracies for the training set, but increasingly bad accuracies for the test set.
+
+I will now present the self study.
+For the self study the popular iris dataset is used. Initially we will only be using the 2 of the 4 features available in the dataset.
+This is because there is no easy way to visualize 4d data in 2d.
+
+We define 4 different models 3 linear and 1 non-linear. These are linear regression, logistic regression and linear support vector machine. as for the non linear we k-nearest neighbors.
+
+We onehot encode the different classes.
+
+Next we run some experiment to see how different values of K effect the accuracy of the k-nearest neighbors. From the experiment i can be observed that a higher K value results in a better accuracy. A K of 4 already results in a 100% accuracy and can thus not improve from larger values of K.
+
+Here we can see some of the different decision boundaries of the different models. 
+
+For KNN we see a somewhat horizontal line that splits the data into the different classes.
+
+The linear regression model has a very different decision boundary. It seems that the model has split the data into the different classes, from the average position points and simply draw a line from there that best splits the data.
+
+The logistic regression model and the linear support vector machine model have a very similar decision boundaries. Both are straight horizontal lines that separate the classes.
+
+For the next exercise we tested the accuracies when making 70/30 split of the data. I will mostly focus on the confusion matrix and the accuracy. For the KNN model we can see that the accuracy is very high. From the confusion matrix we can see that model has slight troubles with class blue and green classes.
+
+For linear regression we can see that the accuracy is very low. From the confusion matrix we can see that the model has trouble with class blue and green classes, but alos with the red class.
+
+For the final exercise we will use all 4 features in the dataset.
+The results of this is slight improvements to the accuracy of the linear regression model and KNN.
+
+## OLD
+4 min presentation
 
 The popular iris dataset is a classic dataset for machine learning, were used.
 For the self study we were presented with three different linear models these were:
