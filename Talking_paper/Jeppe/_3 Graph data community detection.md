@@ -3,6 +3,62 @@
 - Modularity
 - Node clustering with probabilistic mixture model
 
+Hi i am going to be talking about Graph data community detection.
+
+For this is will first be talking about what a community is.
+A community is in the context of graphs a part of the graph that is more closely tied together internally than they are with the rest of the graph. The communities are essentially part of the network that interacts more frequently with each other. These communities tend to be more connected than the rest of the network. The closer a community is connected the more similar the to each other the community is, this is called homophile.   
+Communities can have many different names and structure depending on the context. Sometimes called clusters, cohesive subgroups or modules. 
+The different types of communities are:
+- coherent subgroups, when we identify a single cluster.
+- Graph clustering, when we split the graph into disjoint clusters.
+- overlapping communities, when the communities overlap with each other.
+- fuzzy clustering, when there are different degrees of membership in the communities.
+
+Next i will explain the Newman Girvan algorithm.
+The Newman Girvan algorithm is a method for detecting communities in a graph.
+The Idea behind the algorithm is in essence very simple and be described in simple steps. 
+I is important to understand betweeness centrality, this is a measure of how often a node is connected to another node, and is central part of the algorithm.
+1. For every node in the graph we calculate the betweeness centrality.
+2. Then we remove the edge with the highest betweeness centrality.
+3. Then we calculate the betweeness centrality for every remaining edge.
+4. We then repeat until the graph is empty.
+
+We now a hierarchy of the different communities in the graph.
+To evaluate which of these communities are the most connected to each other we can use the modularity.
+
+Modularity is a measure of how well a community is connected to the rest of the graph.
+So using this we can find the most connected communities. A high modularity score will have many connections within the community, but only a few connections outside the community.
+
+The next thing i will be talking about is node clustering with probabilistic mixture model.
+probabilistic mixture model or gaussian mixture model is a method for clustering data, that uses proportional mixing of gaussian distributions.
+The identified clusters will also end up as gaussian distributions.
+
+Now i will be talking about the self study.
+For the self study we were using a graph representing a social network with 71 lawyers. The dataset has three different kinds of relationships described, but we will only be focusing on the friendship relationship. 
+Each node in the graph has the following attributes:
+- Practice
+- Age
+- Seniority
+- Office
+- Gender
+- Status
+
+Originally it is a directed graph but we turn it into a undirected one for simplicity sake.
+We then define a function for measuring the modularity based on a community and an attribute.
+
+In the first exercise we try to split the graph into varying amount of communities to identifying which have the best split. In the evaluation we can se that the highest modularity score achieved when we have 5 communities is 0.073.
+
+Now we compute the modularity for each of the attributes.
+From this we can see that status and office are the most connected attributes, for a community.
+Status suggest 2 communities while office suggest 3 communities.
+Based on the modularity score we can see that these two attributes are much better at making the correct community's than the newman girvan algorithm.
+
+
+
+
+
+
+## OLD
 Hi im going to be talking a bit about community detection.
 
 Firstly what is a community?
