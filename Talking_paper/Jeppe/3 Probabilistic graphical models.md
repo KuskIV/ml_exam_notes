@@ -26,7 +26,19 @@ This is done by having a prior distribution over the parameters of the model. Us
 
 Bayesian learning is an example of static graphical models. Thus we work under the assumption that the parameters are independent of each other.
 
-An example of dynamic graphical models is the hidden markov model.
+An example of dynamic, temporal graphical models is the hidden markov model.
+Hidden markov models are a type of probabilistic graphical model that is used to model the temporal dynamics of a system.
+They are used to model the dynamics of a system, with the assumption that the probability of a state is directly related to the probability of the previous state.
+In hidden markov models we cannot observe the stats themselves, but only the results from the observations. What we try to estimate is the probability of the system being in a certain state. The probability of the hidden states is essentially what we try to estimate in the hidden markov model. This helps to describe the dynamics of the system.
+
+A hidden markov model two different types of variables these are:
+- State variables, these are the variables that are used to describe the state of the system at each point in time.
+- Observation variables, these these describe what can be observed from the system at each point in time.
+
+Emission matrix: The sensor model specifies the probability of detection by each given the state. Example this tells us what the probability of someone having a umbrella when the state is rain.
+Transition matrix: The transition matrix specifies the probability of transitioning between the different states.
+
+To summarize hidden markov models are a type of probabilistic graphical model that is used to model the temporal dynamics of a system, without knowing the state of the system.
 
 
 
