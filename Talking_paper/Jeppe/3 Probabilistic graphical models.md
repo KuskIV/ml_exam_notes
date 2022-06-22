@@ -3,6 +3,35 @@
 - Maximum likelihood learning
 - The EM algorithm 
 
+## NEW
+Hi im going to be talking about the probabilistic graphical models. 
+I will briefly cover bayesian learning, and then hidden markov models.
+But firstly ill introduce the concept of probabilistic graphical models, the ideas behind Maximum likelihood learning and the EM algorithm.
+
+Probabilistic graphical models are a type of graphical model that is used to model the dynamics of a system. A probabilistic graphical model two different types of variables these are: 
+- State variables, these are the variables that are used to describe the state of the system at each point in time.
+- Observation variables, these these describe what can be observed from the system at each point in time.
+
+The maximum likelihood learning is probabilistic approach to determine values fro parameters of a model. The goal is to find the parameters that maximize the likelihood of the data. To sum up maximum likelihood learning is A technic to find the parameters that maximize the likelihood of the data. 
+
+Now to the EM algorithm, expectation maximization. EM is a way to find the maximum likelihood parameters of a model. EM is a iterative algorithm that is used to find the maximum likelihood parameters of a model.
+
+The EM algorithm generally works consists of the following steps:
+I. Initialization of the parameters of the model.
+II. Expectation step, where the model is estimated based on the data.
+III. Maximization step, where the model is updated based on the estimated parameters.
+
+Now to bayesian learning, is a probabilistic method to determine the parameters of a model. 
+This is done by having a prior distribution over the parameters of the model. Using bayes rule we then combine the prior distribution with the likelihood of the data. This gives us the posterior distribution over the parameters of the model. In bayesian learning we treat the parameters of the model as the latent variables, meaning that the parameters are not directly known to the user. 
+
+Bayesian learning is an example of static graphical models. Thus we work under the assumption that the parameters are independent of each other.
+
+An example of dynamic graphical models is the hidden markov model.
+
+
+
+
+## OLD
 Hi im going to be talking about probabilistic graphical models. 
 
 Firstly ill talk a bit about the uses for probabilistic graphical models. They are often used in the context of machine learning and statistical analysis.
