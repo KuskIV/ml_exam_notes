@@ -4,7 +4,12 @@
 -  Learning in structured models
 -  Bayesian learning
 
-
+## ORD
+- Probabilistic graphical
+- Maximum likelihood learning
+- EM algorithm
+- Bayesian learning
+- Hidden markov model
 ## NEW
 Hi im going to be talking about the probabilistic graphical models. 
 I will briefly cover bayesian learning, and then hidden markov models.

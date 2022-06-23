@@ -33,9 +33,9 @@ Each unlabeled node is seen as a distribution over the labels, by randomly selec
 This is done until the labels of the unlabeled nodes are assigned with the most likely label.
 
 Now i will be talking a bit about gibbs sampling.
-The goal of gibbs sampling is to sample from a distribution that is more likely to be the correct one.
-Essentially we generate a random sample from the distribution and then we use the sample to predict the label of the node.
-We obtain new samples by looking at the older samples and then we use the new samples to predict the label of the node, by using the frequencies of the labels.
+Essentially we generate new sample from the distribution of the labels of the nodes.
+The generation of the new samples are based on the properties existing data. 
+For us to be able to use gibbs sampling we need to know the conditional probability of the labels of the nodes.
 
 Now i will talk a bit about the self study.
 For the self study we were using a graph representing a social network with 71 lawyers.
