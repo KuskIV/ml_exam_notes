@@ -19,7 +19,7 @@ Functional embeddings we learn the embedding vectors by optimizing the loss func
 
 Now that i covered what is meant by embeddings i will be talking about message passing in graph neural network.
 Conceptually message passing is very simple, we just need to know how to update the embedding vectors.
-This is do trough multiple iterations called rounds in message passing.
+This is done trough multiple iterations called rounds in message passing.
 In each round we update the embedding vectors of the nodes in the graph, based on the embedding vectors of the neighbors.
 Essentially by doing this we are obtaining information about the graph, from the perspective of the nodes. The more round we perform message passing the information we obtain. 
 The actual performance of the message passing in simply aggregating the embedding vectors of the neighbors, with some activation function.

@@ -12,8 +12,6 @@
 - Momentum
 ## NEW
 Hi im going to be talking about neural networks basics.
-A neural net work consists of a set of neurons, and the connections between the neurons.
-Each neuron is connected to other neurons, and the connections are made by the weights.
 
 The basic computation of a neural networks forward pass is to take the input, apply the weights, activation function, and then pass the output to the next layer.
 This is the done throughout the network, until the output is reached, where the error is calculated and the weights are updated with back propagation.
