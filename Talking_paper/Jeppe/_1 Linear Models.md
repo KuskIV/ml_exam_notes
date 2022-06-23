@@ -4,6 +4,13 @@
 - Linear discriminant analysis
 - Logistic Regression
 
+## ORD
+- logistic regression
+- binary classification
+- multiclass classification, decision boundary, decision regions
+- 4 different models for classification
+- One hot encoding
+- results
 ## NEW
 
 Hi im going to present a brief overview of linear models for classification and then talk a bit about the self study.

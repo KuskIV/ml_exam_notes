@@ -2,6 +2,13 @@
 - Learning and back propagation (computational graphs, the chain rule)
 - Learning in practice (stochastic gradient descent, momentum, regularisation)
 
+## ORD 
+- Forward pass
+- Activation function, sigmoid, relu, tanh
+- Loss function, mean squared error, logistic loss, cross entropy
+- back propagation
+- gradient decent, stochastic gradient descent
+- regularisation
 ## NEW
 
 Hi im going to be talking about how neural networks learning works.

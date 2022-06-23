@@ -3,6 +3,14 @@
 - The kernel trick
 - String kernels
 
+## ORD
+- Support vector machine.
+- Maximum margin hyperplanes.
+- Non-linearly separable data, feature transformations.
+- Kernel functions, kernel trick, Computationally expensive functions.
+- MNIST dataset, 3 and 7.
+- Varying kernel functions.
+- Customized kernel functions.
 ## NEW
 
 Hi i will be talking about support vector machines. Support vector machines are a class of machine learning algorithms that are used to classify data. They are mostly used in binary classification problems, like most other linear classifiers. Essential what a support vector does is try to find what is called the Maximum margin hyperplane. 
@@ -18,8 +26,7 @@ When we make this transformation we call it mapping the data into the features s
 
 When the data has been mapped and becomes linearly separable we can simply set the maximum margin hyperplane to the best line that separates the data.
 
-But actually calculating the convenient function to make the data linearly separable is a bit tricky and can be very computationally expensive, because the more features are involved the larger degree of polynomial function are required to separate the data the more expensive it becomes.
-This is where kernel functions and the kernel trick come in. The kernel functions that takes the feature in the original space and return the pairwise similarity of the features in the feature space and the original space. The kernel trick is essential that we can represent the data in the feature space, with the dot product so that we do not have to explicitly transforms all the data into the higher dimensional feature space. 
+But actually calculating the convenient function to make the data linearly separable is a bit tricky and can be very computationally expensive, because the more features are involved the larger degree of polynomial function are required to separate the data the more expensive it becomes. Essentially the kernel measures the similarity between the data and the data. This is where the kernel trick comes in, which makes it possible to do this without transforming the data. This is done using the dot product of the data.
 
 Now i will talk a bit about the self studies.
 For this self study we used the MNIST dataset, which consists 70000 28x28 images of handwritten digits from 0 to 9.

@@ -10,9 +10,9 @@ But firstly ill introduce the concept of probabilistic graphical models, the ide
 
 Probabilistic graphical models are a type of graphical model that is used to model the dynamics of a system. A probabilistic graphical model two different types of variables these are: 
 - State variables, these are the variables that are used to describe the state of the system at each point in time.
-- Observation variables, these these describe what can be observed from the system at each point in time.
+- Observation variables, these describe what can be observed from the system at each point in time.
 
-The maximum likelihood learning is probabilistic approach to determine values fro parameters of a model. The goal is to find the parameters that maximize the likelihood of the data. To sum up maximum likelihood learning is A technic to find the parameters that maximize the likelihood of the data. 
+The maximum likelihood learning is probabilistic approach to determine values from parameters of a model. The goal is to find the parameters that maximize the likelihood of the data. To sum up maximum likelihood learning is A technic to find the parameters that maximize the likelihood of the data. 
 
 Now to the EM algorithm, expectation maximization. EM is a way to find the maximum likelihood parameters of a model. EM is a iterative algorithm that is used to find the maximum likelihood parameters of a model.
 

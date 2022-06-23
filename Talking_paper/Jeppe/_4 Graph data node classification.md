@@ -4,11 +4,18 @@
 - Label propagation
 - Node classification with Markov networks
 
+## ORD
+- transduction and inductive classification
+- homophily
+- Label propagation
+- Gibbs sampling
+- self study
+
 ## NEW
 Hi im going to be talking about node classification.
 
 Firstly i will be talking about the differences between transduction and inductive classification.
-The ideas and goal between the two are very different.
+The ideas and goal between the two are a bit different.
 In transductive classification we have all of the data both the training and the test data. We use this data to train the model and then we use the model to predict labels for the test data.
 
 In inductive classification we only have the training data. We use this data to train the model. When the model have been trained we use the model to predict labels of the never seen before test data.
@@ -26,10 +33,9 @@ Each unlabeled node is seen as a distribution over the labels, by randomly selec
 This is done until the labels of the unlabeled nodes are assigned with the most likely label.
 
 Now i will be talking a bit about gibbs sampling.
-Gibbs sampling is a method of learning that is used to predict the labels of unlabeled nodes in a graph.
-When performing gibbs sampling we randomly select a node unlabeled and then we randomly select a label for the node.
-Then we use the label to predict the labels of the neighbors of the node.
-This is done until the labels of the unlabeled nodes are assigned with the most likely label.
+The goal of gibbs sampling is to sample from a distribution that is more likely to be the correct one.
+Essentially we generate a random sample from the distribution and then we use the sample to predict the label of the node.
+We obtain new samples by looking at the older samples and then we use the new samples to predict the label of the node, by using the frequencies of the labels.
 
 Now i will talk a bit about the self study.
 For the self study we were using a graph representing a social network with 71 lawyers.

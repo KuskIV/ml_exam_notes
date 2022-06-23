@@ -3,11 +3,16 @@
 - Elements of GNN architectures (Skip connections, attention)
 - GNNs for node classification, graph classification and link prediction
 
+- Node embeddings
+- message passing updates
+- Uses? Node classification, graph classification and link prediction
+- Self study
 ## NEW
 Hi im going to be talking about graph data node embeddings and graph neural networks. 
 There are two types of node embeddings that i will be talking about.
 An embedding is used to represent a vector in a lower dimensional space.
 For graphs the embedding is a vector used to represent the nodes in a graph.
+
 The two types that are frequently used are, shallow embeddings and functional embeddings.
 Shallow embeddings optimize directly in the space of the embedding vectors. 
 Functional embeddings we learn the embedding vectors by optimizing the loss function.
